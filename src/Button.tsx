@@ -14,10 +14,10 @@ export default class Button extends React.PureComponent<IButtonProps, IButtonSta
   
   render() {
     return <button onClick={() => this.props.onClick()}
-            className={`p-1 focus:outline-none hover:shadow-grayOutline ${this.props.customClass}`}
-            style={{transition: "0.5s"}}
+            className={`p-1 focus:outline-none ${this.props.customClass}`}
+            style={{transition: "0.3s"}}
             >
-              {this.props.text}
+              {this.props.text}              
             </button>
   }
 }

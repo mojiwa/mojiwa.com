@@ -14,9 +14,7 @@ export default class Button extends React.PureComponent<IButtonProps, IButtonSta
   
   render() {
     return <button onClick={() => this.props.onClick()}
-            className={`p-1 focus:outline-none ${this.props.customClass}`}
-            style={{transition: "0.3s"}}
-            >
+            className={`p-1 focus:outline-none transform-transition duration-300 ${this.props.customClass}`}>
               {this.props.text}              
             </button>
   }

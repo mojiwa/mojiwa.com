@@ -1,4 +1,4 @@
-export enum Filter {
+export enum Theme {
   Dark,
   Light
 }

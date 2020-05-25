@@ -63,7 +63,13 @@
   transition: 0.4s ease-in-out;
 }
 
-#see-more-svg {
-  transition: transform;
-  transition-duration: 0.3s;
+.my-image {
+  transition: filter 0.3s ease-in-out;
+  position: relative;
+  top: 20rem
+}
+
+.my-image:hover {
+  filter: brightness(0.8);
+  transition: filter 0.3s ease-in-out;
 }

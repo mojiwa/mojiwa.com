@@ -22,7 +22,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
     return (
       <div className={`${this.state.ThemeSwitch === Filter.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} h-screen font-openSans`}>
         {/* Menu bar */}
-        <div className={`header absolute sticky ${this.state.Page !== Page.Home ? 'fade-in' : 'fade-out'}`}>
+        <div className={`header absolute sticky ${this.state.Page !== Page.Home ? 'custom-show' : 'custom-hidden'}`}>
           <div className='flex justify-between w-auto sm:w-64'>
             <button className='mr-2' onClick={() => this.setState({Page: Page.Home})}>
               <span style={{transition: "0.3s"}} className={`hover:text-teal-600 ${this.state.Page === Page.Home ? 'text-teal-600' : ''}`}>Home</span>
@@ -50,15 +50,14 @@ class App extends React.PureComponent<IAppProps, IAppState> {
             customClass={`hover:shadow-grayOutline bg-gray-800 text-gray-300 rounded-r-lg w-16 ${this.state.ThemeSwitch === Filter.Dark ? 'hover:shadow-none' : 'hover:bg-gray-900'}`} />
         </div>
         {/* Home page */}
-        <div className={`${this.state.Page === Page.Home ? 'fade-in' : 'fade-out'}`}>           
-          <div className='font-thin center-content text-center cursor-default'>
-            <span className='text-5xl'>Hi, I'm <span style={{transition: "0.5s"}} className='font-normal hover:text-teal-600'>Mo Jiwa</span>.</span>
+        <div className={`${this.state.Page === Page.Home ? 'custom-show' : 'custom-hidden'}`}>           
+          <div className={`font-thin center-content text-center cursor-default`} >
+            <span className='text-5xl'>Hi, I'm <span className='font-normal text-teal-600'>Mo Jiwa</span>.</span>
             <br />
             <span className='text-3xl'>I'm a full-stack software developer</span>
             <div>
               <button 
-                onClick={() => {this.setState({Page: Page.About})}}      
-                style={{transition: "0.3s"}}     
+                onClick={() => {this.setState({Page: Page.About})}}                        
                 onMouseOver={() => document.getElementById('see-more-svg').classList.add('rotate-svg')}     
                 onMouseLeave={() => document.getElementById('see-more-svg').classList.remove('rotate-svg')}  
                 className={`see-more-button mt-4 focus:outline-none font-thin text-2xl rounded-lg pt-1 pb-1 pl-4 pr-4 hover:bg-teal-600 border-solid border-2 hover:text-gray-300 hover:border-teal-600 ${this.state.ThemeSwitch === Filter.Dark ? 'text-gray-300 border-gray-300' : 'text-gray-900 border-gray-900'}`}>
@@ -70,19 +69,19 @@ class App extends React.PureComponent<IAppProps, IAppState> {
           </div>          
         </div>
         {/* About page */}
-        <div className={`${this.state.Page === Page.About ? 'fade-in' : 'fade-out'}`}>          
+        <div className={`${this.state.Page === Page.About ? 'custom-show' : 'custom-hidden'}`}>          
           <div>
-            
+            {/* <img src={'images/mo-jedi.jpg'}/> */}
           </div>         
         </div>
         {/* Portfolio page */}
-        <div className={`${this.state.Page === Page.Portfolio ? 'fade-in' : 'fade-out'}`}>          
+        <div className={`${this.state.Page === Page.Portfolio ? 'custom-show' : 'custom-hidden'}`}>          
           <div>
             
           </div>         
         </div>
         {/* Contact page */}
-        <div className={`${this.state.Page === Page.Contact ? 'fade-in' : 'fade-out'}`}>          
+        <div className={`${this.state.Page === Page.Contact ? 'custom-show' : 'custom-hidden'}`}>          
           <div>
             
           </div>         

@@ -47,17 +47,20 @@
 
 .rotate-svg {
   transform: rotateZ(90deg);
+  transition: transform;
   transition-duration: 0.3s;
 }
 
-.fade-out {
+.custom-hidden {
+  visibility: hidden;
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
-.fade-in {
+.custom-show {
+  visibility: visible;
   opacity: 1;
-  transition: opacity 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 #see-more-svg {

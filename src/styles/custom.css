@@ -50,6 +50,16 @@
   transition-duration: 0.3s;
 }
 
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+}
+
 #see-more-svg {
   transition: transform;
   transition-duration: 0.3s;

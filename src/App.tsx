@@ -20,8 +20,9 @@ class App extends React.PureComponent<IAppProps, IAppState> {
 
   render() {
     return (
-      <div className={`${this.state.ThemeSwitch === Filter.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} h-screen font-roboto`}>
-        <div className={`header absolute sticky ${this.state.Page === Page.Home ? 'hidden' : ''}`}>
+      <div className={`${this.state.ThemeSwitch === Filter.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} h-screen font-openSans`}>
+        {/* Menu bar */}
+        <div className={`header absolute sticky ${this.state.Page !== Page.Home ? 'fade-in' : 'fade-out'}`}>
           <div className='flex justify-between w-auto sm:w-64'>
             <button className='mr-2' onClick={() => this.setState({Page: Page.Home})}>
               <span style={{transition: "0.3s"}} className={`hover:text-teal-600 ${this.state.Page === Page.Home ? 'text-teal-600' : ''}`}>Home</span>
@@ -37,6 +38,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
             </button>
           </div>
         </div>
+        {/* Light/Dark theme button */}
         <div className='right-0 fixed mr-1 mt-1'>
           <Button
             onClick={() => { this.setState({ThemeSwitch: Filter.Light })}}
@@ -47,7 +49,8 @@ class App extends React.PureComponent<IAppProps, IAppState> {
             text="Dark"
             customClass={`hover:shadow-grayOutline bg-gray-800 text-gray-300 rounded-r-lg w-16 ${this.state.ThemeSwitch === Filter.Dark ? 'hover:shadow-none' : 'hover:bg-gray-900'}`} />
         </div>
-        <div className={`${this.state.Page === Page.Home ? '' : 'hidden'}`}>           
+        {/* Home page */}
+        <div className={`${this.state.Page === Page.Home ? 'fade-in' : 'fade-out'}`}>           
           <div className='font-thin center-content text-center cursor-default'>
             <span className='text-5xl'>Hi, I'm <span style={{transition: "0.5s"}} className='font-normal hover:text-teal-600'>Mo Jiwa</span>.</span>
             <br />
@@ -66,17 +69,20 @@ class App extends React.PureComponent<IAppProps, IAppState> {
             </div>
           </div>          
         </div>
-        <div className={`${this.state.Page === Page.About ? '' : 'hidden'}`}>          
+        {/* About page */}
+        <div className={`${this.state.Page === Page.About ? 'fade-in' : 'fade-out'}`}>          
           <div>
             
           </div>         
         </div>
-        <div className={`${this.state.Page === Page.Portfolio ? '' : 'hidden'}`}>          
+        {/* Portfolio page */}
+        <div className={`${this.state.Page === Page.Portfolio ? 'fade-in' : 'fade-out'}`}>          
           <div>
             
           </div>         
         </div>
-        <div className={`${this.state.Page === Page.Contact ? '' : 'hidden'}`}>          
+        {/* Contact page */}
+        <div className={`${this.state.Page === Page.Contact ? 'fade-in' : 'fade-out'}`}>          
           <div>
             
           </div>         

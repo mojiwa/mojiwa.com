@@ -1,5 +1,4 @@
 import React from 'react';
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 import { Theme, Page } from './enums';
 import Button from './Button';
@@ -165,9 +164,6 @@ class App extends React.PureComponent<IAppProps, IAppState> {
         {/* Contact page */}
         <div className={`${this.state.Page === Page.Contact ? 'custom-show' : 'custom-hidden'} page-location`}>          
           <div>
-            <div className=''>
-              <TwitterTimelineEmbed sourceType='profile' screenName='timetraveller_x' options={{height: 400}}/>
-            </div>
           </div>         
         </div>
       </div>

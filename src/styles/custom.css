@@ -6,16 +6,14 @@
   margin: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
+  left: 50%;  
   transform: translate(-50%, -50%);
 }
 
 .header {
   margin: 0;
   position: absolute;
-  top: 0;  
-  -ms-transform: translate(50%, 50%);
+  top: 0;    
   transform: translate(50%, 50%);
 }
 
@@ -23,16 +21,14 @@
   margin: 0;
   position: absolute;
   top: 0;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
+  left: 50%;  
   transform: translate(-50%, -50%);
 }
 
 .footer {
   margin: 0;
   position: absolute;
-  bottom: 0;  
-  -ms-transform: translate(50%, -50%);
+  bottom: 0;    
   transform: translate(50%, -50%);  
 }
 
@@ -40,8 +36,7 @@
   margin: 0;
   position: absolute;
   bottom: 0;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
+  left: 50%;  
   transform: translate(-50%, -50%);
 }
 
@@ -78,14 +73,112 @@
   transition: filter 0.3s ease-in-out;
 }
 
-.animated-list li {
-  margin-left: -200px;  
-  visibility: hidden;
-  transition: 0.5s ease-in-out;
+.list-item-hover:hover {
+  color: #319795;
+  transition: color 0.2s ease-in-out;
 }
 
-.animated-list:hover li{
-  margin-left: 0px;
-  visibility: visible;  
-  
+.animated-list li {
+  position: relative;  
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.6s ease-in-out;
+  animation: slideOut 0.6s ease-in forwards;  
+}
+
+.animated-list:hover li{  
+  opacity: 1;  
+  left: 0px;
+  max-height: 400px;    
+  transform: translateX(100%);  
+  transition: max-height, transform, opacity 0.6s ease-in-out;  
+  animation: colorChange 3s ease-in-out alternate-reverse, slideIn 0.6s ease-in forwards;    
+}
+
+@keyframes colorChange {
+  100% { color: #319795; }
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes slideOut {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+.animated-list li:nth-child(1) {    
+  transition-delay: 0s;
+  animation-delay: 0.2s;  
+}
+
+.animated-list li:nth-child(2) {  
+  transition-delay: 0.2s;
+  animation-delay: 0.4s;
+}
+
+.animated-list li:nth-child(3) {    
+  transition-delay: 0.4s;
+  animation-delay: 0.6s;
+}
+
+.animated-list li:nth-child(4) {  
+  transition-delay: 0.6s;
+  animation-delay: 0.8s;
+}
+
+.animated-list li:nth-child(5) {
+  transition-delay: 0.8s;
+  animation-delay: 1.0s;
+}
+
+.animated-list li:nth-child(6) {
+  transition-delay: 1.0s;
+  animation-delay: 1.2s;  
+}
+
+.animated-list li:nth-child(7) {
+  transition-delay: 1.2s;
+  animation-delay: 1.4s;
+}
+
+.animated-list li:nth-child(8) {
+  transition-delay: 1.4s;
+  animation-delay: 1.6s;  
+}
+
+.animated-list li:nth-child(9) {
+  transition-delay: 1.6s;
+  animation-delay: 1.8s;
+}
+
+.animated-list li:nth-child(10) {
+  transition-delay: 1.8s;
+  animation-delay: 2.0s;
+}
+
+.animated-list li:nth-child(11) {
+  transition-delay: 2.0s;
+  animation-delay: 2.2s;
+}
+
+.animated-list li:nth-child(12) {
+  transition-delay: 2.2s;
+  animation-delay: 2.4s;
+}
+
+.animated-list li:nth-child(13) {
+  transition-delay: 2.4s;
+  animation-delay: 2.6s;
+}
+
+.animated-list li:nth-child(14) {
+  transition-delay: 2.6s;
+  animation-delay: 2.8s;
+}
+
+.collapsed {
+  height: 0px;
 }

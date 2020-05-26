@@ -49,16 +49,16 @@ class App extends React.PureComponent<IAppProps, IAppState> {
         {/* Menu bar */}
         <div className={`header absolute sticky ${this.state.Page !== Page.Home ? 'custom-show' : 'custom-hidden'}`}>
           <div className='flex justify-between w-auto sm:w-64'>
-            <button className='mr-2' onClick={() => this.setState({Page: Page.Home})}>
+            <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Home})}>
               <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Home ? 'text-teal-600' : ''}`}>Home</span>
             </button>
-            <button className='mr-2' onClick={() => this.setState({Page: Page.About})}>
+            <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.About})}>
               <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.About ? 'text-teal-600' : ''}`}>About</span>
             </button>
-            <button className='mr-2' onClick={() => this.setState({Page: Page.Portfolio})}>
+            <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Portfolio})}>
               <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Portfolio ? 'text-teal-600' : ''}`}>Portfolio</span>
             </button>
-            <button onClick={() => this.setState({Page: Page.Contact})}>
+            <button className='focus:outline-none' onClick={() => this.setState({Page: Page.Contact})}>
               <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Contact ? 'text-teal-600' : ''}`}>Contact</span>
             </button>
           </div>
@@ -95,29 +95,35 @@ class App extends React.PureComponent<IAppProps, IAppState> {
         </div>
         {/* About page */}
         <div className={`${this.state.Page === Page.About ? 'custom-show' : 'custom-hidden'} page-location`}>          
-        <div className='flex'>
-            <div>
-              <img 
-                src={'images/mo-jedi.jpg'} 
-                className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-full w-32 md:w-64 h-32 md:h-64 m:border-4 my-image cursor-pointer`}
-                onClick={() => this.setState({Page: Page.Contact})}/>
-            </div>         
-            <div>
-              {/* TODO: Animate each list item to slide in from left */}
-              <ul className='animated-list'>
-                Skills
-                {LIST_OF_SKILLS.map((skill: string) =>
-                  <li key={skill}>{skill}</li>
-                )}
-              </ul>
-              <ul>
-                Weapons of Choice
-                {LIST_OF_TOOLS.map((tool: string) =>
-                  <li key={tool}>{tool}</li>
-                )}
-              </ul>
+          <div className='flex'>
+              <div>
+                <img 
+                  src={'images/mo-jedi.jpg'} 
+                  alt='Mo Jiwa'
+                  className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-full w-32 md:w-64 h-32 md:h-64 m:border-4 my-image cursor-pointer`}
+                  onClick={() => this.setState({Page: Page.Contact})}/>
+              </div>         
+              <div>
+              </div>            
             </div>
-          </div>
+            <div className='cursor-default mt-10 w-64'>
+              <div className='animated-list ml-2 border-teal-600 border-l-4'>
+                <span className='transition-colors duration-300 hover:text-teal-600 text-2xl ml-4'>Skills</span>
+                <ul>                
+                  {LIST_OF_SKILLS.map((skill: string) =>
+                    <li className='ml-6 list-item-hover' key={skill}>{skill}</li>
+                  )}
+                </ul>
+              </div>  
+              <div className='animated-list mt-4 ml-2 border-teal-600 border-l-4'>
+                <ul>
+                <span className='transition-colors duration-300 hover:text-teal-600 text-2xl ml-4'>Weapons of Choice</span>
+                  {LIST_OF_TOOLS.map((tool: string) =>
+                    <li className='ml-6 list-item-hover' key={tool}>{tool}</li>
+                  )}
+                </ul>
+              </div>                              
+            </div>
         </div>
         {/* Portfolio page */}
         <div className={`${this.state.Page === Page.Portfolio ? 'custom-show' : 'custom-hidden'} page-location`}>          

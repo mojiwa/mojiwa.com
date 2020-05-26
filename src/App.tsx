@@ -3,6 +3,31 @@ import React from 'react';
 import { Theme, Page } from './enums';
 import Button from './Button';
 
+const LIST_OF_SKILLS : string[] = [
+  'C#',
+  'WPF',
+  'Python',
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',  
+  'SQL',
+];
+
+const LIST_OF_TOOLS : string[] = [
+  'Visual Studio',
+  'Visual Studio Code',
+  'Rider',
+  'GIT',
+  'Docker',
+  'Hyper-V',
+  'NUnit',
+  'Node.js',  
+  'Tailwind CSS',  
+  'MSSQL',
+  'MySQL',
+];
+
 interface IAppProps {
 
 }
@@ -69,19 +94,39 @@ class App extends React.PureComponent<IAppProps, IAppState> {
           </div>          
         </div>
         {/* About page */}
-        <div className={`${this.state.Page === Page.About ? 'custom-show' : 'custom-hidden'}`}>          
-          <div>
-            <img src={'images/mo-jedi.jpg'} className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-full w-32 md:w-64 h-32 md:h-64 m:border-4 my-image`}/>
-          </div>         
+        <div className={`${this.state.Page === Page.About ? 'custom-show' : 'custom-hidden'} page-location`}>          
+        <div className='flex'>
+            <div>
+              <img 
+                src={'images/mo-jedi.jpg'} 
+                className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-full w-32 md:w-64 h-32 md:h-64 m:border-4 my-image cursor-pointer`}
+                onClick={() => this.setState({Page: Page.Contact})}/>
+            </div>         
+            <div>
+              {/* TODO: Animate each list item to slide in from left */}
+              <ul className='animated-list'>
+                Skills
+                {LIST_OF_SKILLS.map((skill: string) =>
+                  <li key={skill}>{skill}</li>
+                )}
+              </ul>
+              <ul>
+                Weapons of Choice
+                {LIST_OF_TOOLS.map((tool: string) =>
+                  <li key={tool}>{tool}</li>
+                )}
+              </ul>
+            </div>
+          </div>
         </div>
         {/* Portfolio page */}
-        <div className={`${this.state.Page === Page.Portfolio ? 'custom-show' : 'custom-hidden'}`}>          
+        <div className={`${this.state.Page === Page.Portfolio ? 'custom-show' : 'custom-hidden'} page-location`}>          
           <div>
             
           </div>         
         </div>
         {/* Contact page */}
-        <div className={`${this.state.Page === Page.Contact ? 'custom-show' : 'custom-hidden'}`}>          
+        <div className={`${this.state.Page === Page.Contact ? 'custom-show' : 'custom-hidden'} page-location`}>          
           <div>
             
           </div>         

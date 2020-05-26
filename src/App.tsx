@@ -1,4 +1,5 @@
 import React from 'react';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 import { Theme, Page } from './enums';
 import Button from './Button';
@@ -6,27 +7,34 @@ import Button from './Button';
 const LIST_OF_SKILLS : string[] = [
   'C#',
   'WPF',
+  'SQL',
+  'Powershell',
   'Python',
   'HTML',
   'CSS',
   'JavaScript',
-  'React',  
-  'SQL',
+  'React',
+  'Agile: Scrum | Kanban',
+  'TDD',
 ];
 
 const LIST_OF_TOOLS : string[] = [
   'Visual Studio',
   'Visual Studio Code',
   'Rider',
-  'GIT',
+  'MSSQL',
+  'MySQL',
+  'Git',
   'Docker',
   'Hyper-V',
   'NUnit',
+  'Coded UI',
   'Node.js',  
-  'Tailwind CSS',  
-  'MSSQL',
-  'MySQL',
+  'Tailwind CSS',
 ];
+
+const THEME_LIGHT_HEX: string = '#E2E8F0';
+const THEME_DARK_HEX: string = '#1A202C';
 
 interface IAppProps {
 
@@ -43,9 +51,14 @@ class App extends React.PureComponent<IAppProps, IAppState> {
     Page: Page.Home
   }
 
+  setTheme = (theme: Theme) => {
+    document.body.style.backgroundColor = theme === Theme.Dark ? THEME_DARK_HEX : THEME_LIGHT_HEX;
+    this.setState({ ThemeSwitch: theme });
+  }
+
   render() {
     return (
-      <div className={`${this.state.ThemeSwitch === Theme.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} h-screen font-openSans`}>
+      <div className={`${this.state.ThemeSwitch === Theme.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} w-screen h-screen font-openSans`}>
         {/* Menu bar */}
         <div className={`header absolute sticky ${this.state.Page !== Page.Home ? 'custom-show' : 'custom-hidden'}`}>
           <div className='flex justify-between w-auto sm:w-64'>
@@ -66,11 +79,11 @@ class App extends React.PureComponent<IAppProps, IAppState> {
         {/* Light/Dark theme button */}
         <div className='right-0 fixed mr-1 mt-1'>
           <Button
-            onClick={() => { this.setState({ThemeSwitch: Theme.Light })}}
+            onClick={() => this.setTheme(Theme.Light)}
             text="Light"
             customClass={`hover:shadow-grayOutline bg-gray-400 mr-1 text-gray-900 rounded-l-lg w-16 ${this.state.ThemeSwitch === Theme.Light ? 'hover:shadow-none' : 'hover:bg-gray-200'}`}/>
           <Button
-            onClick={() => { this.setState({ThemeSwitch: Theme.Dark })}}
+            onClick={() => this.setTheme(Theme.Dark)}
             text="Dark"
             customClass={`hover:shadow-grayOutline bg-gray-800 text-gray-300 rounded-r-lg w-16 ${this.state.ThemeSwitch === Theme.Dark ? 'hover:shadow-none' : 'hover:bg-gray-900'}`} />
         </div>
@@ -96,22 +109,25 @@ class App extends React.PureComponent<IAppProps, IAppState> {
         {/* About page */}
         <div className={`${this.state.Page === Page.About ? 'custom-show' : 'custom-hidden'} page-location`}>          
           <div className='flex'>
-              <div>
-                <img 
-                  src={'images/mo-jedi.jpg'} 
-                  alt='Mo Jiwa'
-                  className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-full w-32 md:w-64 h-32 md:h-64 m:border-4 my-image cursor-pointer`}
-                  onClick={() => this.setState({Page: Page.Contact})}/>
-              </div>         
-              <div>
-              </div>            
-            </div>
-            <div className='cursor-default mt-10 w-64'>
-              <div className='animated-list ml-2 border-teal-600 border-l-4'>
+            <div>
+              <img 
+                src={'images/mo-jedi.jpg'} 
+                alt='Mo Jiwa'
+                className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-full w-32 md:w-64 h-32 md:h-64 m:border-4 my-image cursor-pointer`}
+                onClick={() => this.setState({Page: Page.Contact})}/>
+            </div>         
+            <div className='m-10 flex-row cursor-default'>
+              <p>I am a software developer living and working in the UK.
+              <br />I work for a company based in London that designs and builds financial and commodities trading software.</p>
+              <br />
+              <p>I primarily work in an MSSQL -> .Net (C# | WPF) tech stack; but more recently find myself venturing into 
+                <br />Linux -> Docker -> MySQL -> Python -> Node -> React, where I have created a number of <span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.setState({Page: Page.Portfolio})}>internal tools</span>
+                <br /> and hackathon projects.</p>
+              <div className='animated-list mt-4 ml-2 border-teal-600 border-l-4'>
                 <span className='transition-colors duration-300 hover:text-teal-600 text-2xl ml-4'>Skills</span>
                 <ul>                
                   {LIST_OF_SKILLS.map((skill: string) =>
-                    <li className='ml-6 list-item-hover' key={skill}>{skill}</li>
+                    <li className='ml-6 hover:text-teal-600' key={skill}>{skill}</li>
                   )}
                 </ul>
               </div>  
@@ -119,22 +135,39 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 <ul>
                 <span className='transition-colors duration-300 hover:text-teal-600 text-2xl ml-4'>Weapons of Choice</span>
                   {LIST_OF_TOOLS.map((tool: string) =>
-                    <li className='ml-6 list-item-hover' key={tool}>{tool}</li>
+                    <li className='ml-6 hover:text-teal-600' key={tool}>{tool}</li>
                   )}
                 </ul>
-              </div>                              
-            </div>
+              </div>   
+            </div> 
+            <div className='mt-32'>
+            <svg 
+              className='cursor-pointer transition-colors duration-300 ease-linear hover:text-teal-600'
+              onClick={() => this.setState({ Page: Page.Portfolio })}
+              fill="currentColor" 
+              height="40px"
+              width="40px"
+              viewBox="0 0 20 20">
+              <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" 
+                clip-rule="evenodd" 
+                fill-rule="evenodd">
+              </path>
+            </svg>
+          </div>         
+          </div>  
         </div>
         {/* Portfolio page */}
         <div className={`${this.state.Page === Page.Portfolio ? 'custom-show' : 'custom-hidden'} page-location`}>          
           <div>
-            
+            Please hang in there, this page is coming...
           </div>         
         </div>
         {/* Contact page */}
         <div className={`${this.state.Page === Page.Contact ? 'custom-show' : 'custom-hidden'} page-location`}>          
           <div>
-            
+            <div className=''>
+              <TwitterTimelineEmbed sourceType='profile' screenName='timetraveller_x' options={{height: 400}}/>
+            </div>
           </div>         
         </div>
       </div>

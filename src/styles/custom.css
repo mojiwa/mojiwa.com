@@ -1,3 +1,16 @@
+body {
+  background-color: #1A202C;
+}
+
+a {
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #319795;
+  transition: color 0.3s ease-in-out
+}
+
 .page-layout {
   transition: visibility 4s, ease;
 }
@@ -69,13 +82,8 @@
 }
 
 .my-image:hover {
-  filter: brightness(0.8);
+  filter: brightness(0.6);
   transition: filter 0.3s ease-in-out;
-}
-
-.list-item-hover:hover {
-  color: #319795;
-  transition: color 0.2s ease-in-out;
 }
 
 .animated-list li {
@@ -86,12 +94,22 @@
   animation: slideOut 0.6s ease-in forwards;  
 }
 
+@keyframes slideIn {
+  0% { transform: translateX(50%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes slideOut {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(50%); }
+}
+
 .animated-list:hover li{  
   opacity: 1;  
-  left: 0px;
   max-height: 400px;    
-  transform: translateX(100%);  
-  transition: max-height, transform, opacity 0.6s ease-in-out;  
+  transform: translateX(50%);  
+  transition-property: all , color;
+  transition-duration: 0.6s, 0.3s;
   animation: colorChange 3s ease-in-out alternate-reverse, slideIn 0.6s ease-in forwards;    
 }
 
@@ -99,86 +117,72 @@
   100% { color: #319795; }
 }
 
-@keyframes slideIn {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0%); }
-}
-
-@keyframes slideOut {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(100%); }
-}
-
 .animated-list li:nth-child(1) {    
-  transition-delay: 0s;
-  animation-delay: 0.2s;  
+  transition-delay: 0s, 0s;
+  animation-delay: 0s;  
 }
 
 .animated-list li:nth-child(2) {  
-  transition-delay: 0.2s;
-  animation-delay: 0.4s;
+  transition-delay: 0.2s, 0s;
+  animation-delay: 0.2s;
 }
 
 .animated-list li:nth-child(3) {    
-  transition-delay: 0.4s;
-  animation-delay: 0.6s;
+  transition-delay: 0.4s, 0s;
+  animation-delay: 0.4s;
 }
 
 .animated-list li:nth-child(4) {  
-  transition-delay: 0.6s;
-  animation-delay: 0.8s;
+  transition-delay: 0.6s, 0s;
+  animation-delay: 0.6s;
 }
 
 .animated-list li:nth-child(5) {
-  transition-delay: 0.8s;
-  animation-delay: 1.0s;
+  transition-delay: 0.8s, 0s;
+  animation-delay: 0.8s;
 }
 
 .animated-list li:nth-child(6) {
-  transition-delay: 1.0s;
-  animation-delay: 1.2s;  
+  transition-delay: 1.0s, 0s;
+  animation-delay: 1.0s;  
 }
 
 .animated-list li:nth-child(7) {
-  transition-delay: 1.2s;
-  animation-delay: 1.4s;
+  transition-delay: 1.2s, 0s;
+  animation-delay: 1.2s;
 }
 
 .animated-list li:nth-child(8) {
-  transition-delay: 1.4s;
-  animation-delay: 1.6s;  
+  transition-delay: 1.4s, 0s;
+  animation-delay: 1.4s;  
 }
 
 .animated-list li:nth-child(9) {
-  transition-delay: 1.6s;
-  animation-delay: 1.8s;
+  transition-delay: 1.6s, 0s;
+  animation-delay: 1.6s;
 }
 
 .animated-list li:nth-child(10) {
-  transition-delay: 1.8s;
-  animation-delay: 2.0s;
+  transition-delay: 1.8s, 0s;
+  animation-delay: 1.8s;
 }
 
 .animated-list li:nth-child(11) {
-  transition-delay: 2.0s;
-  animation-delay: 2.2s;
+  transition-delay: 2.0s, 0s;
+  animation-delay: 2.0s;
 }
 
 .animated-list li:nth-child(12) {
-  transition-delay: 2.2s;
-  animation-delay: 2.4s;
+  transition-delay: 2.2s, 0s;
+  animation-delay: 2.2s;
 }
 
 .animated-list li:nth-child(13) {
-  transition-delay: 2.4s;
-  animation-delay: 2.6s;
+  transition-delay: 2.4s, 0s;
+  animation-delay: 2.4s;
 }
 
 .animated-list li:nth-child(14) {
-  transition-delay: 2.6s;
-  animation-delay: 2.8s;
-}
-
-.collapsed {
-  height: 0px;
+  transition-delay: 2.6s, 0s;
+  animation-delay: 2.6s;
 }

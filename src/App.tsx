@@ -130,12 +130,12 @@ class App extends React.PureComponent<IAppProps, IAppState> {
               className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} mt-4 w-3/6 sm:w-64 sm:h-auto sm:ml-2 ml-1/4 border-gray-300 border-solid border-2 rounded-md md:border-4 my-image cursor-pointer`}
               onClick={() => this.setState({Page: Page.Contact})}/>            
             <div className='text-xs mt-4 md:text-base ml-2'>
-              <p>I am a software developer living and working in the UK.<br/>I work for a company based in London that designs and builds financial and commodities trading software.</p>
+              <p>I am a software developer based in the UK for a company that designs and builds financial and commodities trading software.</p>
               <br/>
-              <p>I primarily work in an MSSQL -> .Net (C# | WPF) tech stack; but more recently find myself venturing more and more into the world of web development and devOps, working in a 
+              <p>I primarily work in an MSSQL -> .Net (C# | WPF) tech stack; but recently have found myself venturing more and more into the world of web development and devOps, working in a 
               Linux -> Docker -> MySQL -> Python -> Node -> React tech stack, where I have created a number of <span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.setState({Page: Page.Portfolio})}>internal tools</span> and hackathon projects.</p>
               <br/>
-              <p>When I'm not coding for work, I'm usually coding for fun (I have a life, really), gaming, playing D&D, DJ'ing, or something else geeky... When I'm not looking after my kid, of course.</p>
+              <p>When I'm not coding for work, I'm generally looking after the little one. But after she goes to bed, I'm usually coding for fun (I have a life, really), gaming, playing D&D, DJ'ing, or something else geeky...</p>
               <br />              
             </div>            
             <div className='cursor-default'>
@@ -168,8 +168,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
               <div id='library' className='slide-up'>                
                 <span className='md:text-base text-xs'>
                   Developed with a MySQL + Node Express backend, and React (TypeScript) with Tailwind CSS on the front-end.
-                  <br />The project was to develop a easily maintainable company library where end-users 
-                  <br />could checkout or reserve books themselves without needing to bother admin staff.
+                  <br />The project was to develop an easily maintainable library where end-users could checkout or reserve books themselves without needing to bother admin staff.
                   <br />Functionality includes:
                   <li>Adding books</li>
                   <li>Removing books</li>
@@ -190,11 +189,10 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 <span className='md:text-base text-xs'>
                   This project was developed using Docker running multiple Linux containers to host MySQL, Python with Flask, and NGINX.
                   <br />The front-end was React with TypeScript.
-                  <br />The goal of the project was to create the ability to create and manage custom tag groups
-                  <br />that could be ultilised within Google Chat. 
+                  <br />The goal of the project was to create the ability to create and manage custom tag groups that could be ultilised within Google Chat. 
                   <br />Functionality includes:
                   <li>Adding TagBot to any room</li>
-                  <li>Searching for pre-existing tagged groups per room</li>
+                  <li>Searching for pre-existing tag groups per room</li>
                   <li>A web interface to create, delete and manage custom tag groups</li>
                 </span>
                 <a href={'images/tagbot2.png'} target='_blank' rel="noopener noreferrer">

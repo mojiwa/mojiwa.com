@@ -1,5 +1,7 @@
 body {
   background-color: #1A202C;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 a {
@@ -185,4 +187,29 @@ a:hover {
 .animated-list li:nth-child(14) {
   transition-delay: 2.6s, 0s;
   animation-delay: 2.6s;
+}
+
+.social-media-buttons {
+  height: 32px;
+  width: 32px;
+  fill: currentColor;
+  transition: 0.6s ease-in-out;
+}
+
+.social-media-buttons:hover {
+  transform: translateX(-2px);
+  fill: #319795;
+  transition: 0.6s ease-in-out;
+}
+
+.social-media-text {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: 0.3s ease-in-out;  
+}
+
+.slide-right:hover > span {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: 0.4s ease-in-out;  
 }

@@ -120,8 +120,11 @@ class App extends React.PureComponent<IAppProps, IAppState> {
               <br />I work for a company based in London that designs and builds financial and commodities trading software.</p>
               <br />
               <p>I primarily work in an MSSQL -> .Net (C# | WPF) tech stack; but more recently find myself venturing more  
-                <br />and more into the world of web development and devOps, working in a Linux -> Docker -> MySQL -> Python -> Node -> React 
-                <br /> tech stack, where I have created a number of <span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.setState({Page: Page.Portfolio})}>internal tools</span> and hackathon projects.</p>
+              <br />and more into the world of web development and devOps, working in a Linux -> Docker -> MySQL -> Python -> Node -> React 
+              <br /> tech stack, where I have created a number of <span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.setState({Page: Page.Portfolio})}>internal tools</span> and hackathon projects.</p>
+              <br />
+              <p>When I'm not coding for work, I'm usually coding for fun (I have a life, really), gaming, DJ'ing, or something else geeky... When I'm not looking after my kid, of course.</p>
+              <br />
               <div className='animated-list mt-4 ml-2 border-teal-600 border-l-4'>
                 <span className='transition-colors duration-300 hover:text-teal-600 text-2xl ml-4'>Skills</span>
                 <ul>                
@@ -231,6 +234,16 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 Play
               </div>
               <div className='flex items-center ml-2 mb-4 slide-right'>
+                <a target='_blank' rel="noopener noreferrer" href='https://open.spotify.com/user/mojiwa'>
+                  <svg               
+                    className='social-media-buttons'
+                    viewBox="0 0 24 24">
+                      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                  </svg>
+                </a>
+                <span className='ml-2 social-media-text'>Spotify: mojiwa</span>            
+              </div>  
+              <div className='flex items-center ml-2 mb-4 slide-right'>
                 <a target='_blank' rel="noopener noreferrer" href='https://steamcommunity.com/id/mojiwa/'>
                   <svg               
                     className='social-media-buttons'
@@ -250,7 +263,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 </a>
                 <span className='ml-2 social-media-text'>GOG: mojiwa</span>            
               </div>   
-              <div className='flex items-center ml-2 mb-2 slide-right'>
+              <div className='flex items-center ml-2 mb-4 slide-right'>
                 <svg               
                   className='social-media-buttons'
                   viewBox="0 0 24 24">

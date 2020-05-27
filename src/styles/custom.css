@@ -193,13 +193,13 @@ a:hover {
   height: 32px;
   width: 32px;
   fill: currentColor;
-  transition: 0.6s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .social-media-buttons:hover {
   transform: translateX(-2px);
   fill: #319795;
-  transition: 0.6s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .social-media-text {

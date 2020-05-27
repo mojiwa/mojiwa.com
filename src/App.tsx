@@ -69,47 +69,50 @@ class App extends React.PureComponent<IAppProps, IAppState> {
 
   render() {
     return (
-      <div className={`${this.state.ThemeSwitch === Theme.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} w-screen h-screen font-openSans`}>
-        {/* Menu bar */}
-        <div className={`header absolute sticky ${this.state.Page !== Page.Home ? 'custom-show' : 'custom-hidden'}`}>
-          <div className='flex justify-between w-auto sm:w-64'>
-            <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Home})}>
-              <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Home ? 'text-teal-600' : ''}`}>Home</span>
-            </button>
-            <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.About})}>
-              <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.About ? 'text-teal-600' : ''}`}>About</span>
-            </button>
-            <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Portfolio})}>
-              <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Portfolio ? 'text-teal-600' : ''}`}>Portfolio</span>
-            </button>
-            <button className='focus:outline-none' onClick={() => this.setState({Page: Page.Contact})}>
-              <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Contact ? 'text-teal-600' : ''}`}>Contact</span>
-            </button>
+      <div className={`${this.state.ThemeSwitch === Theme.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} font-openSans text-sm md:text`}>
+        <div className='flex justify-between mt-2 ml-3 mr-3'>          
+          {/* Menu bar */}
+          <div className='text-xs md:text-base'>
+            <div className={`${this.state.Page !== Page.Home ? '' : 'hidden'} flex justify-evenly md:w-64`}>
+              <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Home})}>
+                <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Home ? 'text-teal-600' : ''}`}>Home</span>
+              </button>
+              <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.About})}>
+                <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.About ? 'text-teal-600' : ''}`}>About</span>
+              </button>
+              <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Portfolio})}>
+                <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Portfolio ? 'text-teal-600' : ''}`}>Portfolio</span>
+              </button>
+              <button className='focus:outline-none' onClick={() => this.setState({Page: Page.Contact})}>
+                <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Contact ? 'text-teal-600' : ''}`}>Contact</span>
+              </button>
+            </div>
+          </div>        
+          {/* Light/Dark theme button */}
+          <div className='ml-2'>
+            <Button
+              onClick={() => this.setTheme(Theme.Light)}
+              text="Light"
+              customClass={`hover:shadow-grayOutline bg-gray-400 mr-1 text-gray-900 rounded-l-lg md:w-16 md:h-auto h-6 ${this.state.ThemeSwitch === Theme.Light ? 'hover:shadow-none' : 'hover:bg-gray-200'}`}/>
+            <Button
+              onClick={() => this.setTheme(Theme.Dark)}
+              text="Dark"
+              customClass={`hover:shadow-grayOutline bg-gray-800 text-gray-300 rounded-r-lg md:w-16 md:h-auto h-6 ${this.state.ThemeSwitch === Theme.Dark ? 'hover:shadow-none' : 'hover:bg-gray-900'}`} />
           </div>
         </div>
-        {/* Light/Dark theme button */}
-        <div className='right-0 fixed mr-1 mt-1'>
-          <Button
-            onClick={() => this.setTheme(Theme.Light)}
-            text="Light"
-            customClass={`hover:shadow-grayOutline bg-gray-400 mr-1 text-gray-900 rounded-l-lg w-16 ${this.state.ThemeSwitch === Theme.Light ? 'hover:shadow-none' : 'hover:bg-gray-200'}`}/>
-          <Button
-            onClick={() => this.setTheme(Theme.Dark)}
-            text="Dark"
-            customClass={`hover:shadow-grayOutline bg-gray-800 text-gray-300 rounded-r-lg w-16 ${this.state.ThemeSwitch === Theme.Dark ? 'hover:shadow-none' : 'hover:bg-gray-900'}`} />
-        </div>
+        
         {/* Home page */}
-        <div className={`${this.state.Page === Page.Home ? 'custom-show' : 'custom-hidden'}`}>           
+        <div className={`${this.state.Page === Page.Home ? '' : 'hidden'}`}>           
           <div className={`font-thin center-content text-center cursor-default`} >
-            <span className='text-5xl'>Hi, I'm <span className='font-normal text-teal-600'>Mo Jiwa</span>.</span>
+            <span className='text-xl md:text-5xl'>Hi, I'm <span className='font-normal text-teal-600'>Mo Jiwa</span>.</span>
             <br />
-            <span className='text-3xl'>I'm a full-stack software developer</span>
+            <span className='text-lg md:text-3xl'>I'm a full-stack software developer</span>
             <div>
               <button 
                 onClick={() => {this.setState({Page: Page.About})}}                        
                 onMouseOver={() => document.getElementById('see-more-svg').classList.add('rotate-svg')}     
                 onMouseLeave={() => document.getElementById('see-more-svg').classList.remove('rotate-svg')}  
-                className={`see-more-button mt-4 focus:outline-none font-thin text-2xl rounded-lg pt-1 pb-1 pl-4 pr-4 hover:bg-teal-600 border-solid border-2 hover:text-gray-300 hover:border-teal-600 ${this.state.ThemeSwitch === Theme.Dark ? 'text-gray-300 border-gray-300' : 'text-gray-900 border-gray-900'}`}>
+                className={`see-more-button mt-4 focus:outline-none font-thin text-md md:text-2xl rounded-lg pt-1 pb-1 pl-4 pr-4 hover:bg-teal-600 border-solid border-2 hover:text-gray-300 hover:border-teal-600 ${this.state.ThemeSwitch === Theme.Dark ? 'text-gray-300 border-gray-300' : 'text-gray-900 border-gray-900'}`}>
                   See More  <svg id='see-more-svg' className='inline transition-transform duration-300' height="20px" width="20px" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd" />
                             </svg>
@@ -118,27 +121,26 @@ class App extends React.PureComponent<IAppProps, IAppState> {
           </div>          
         </div>
         {/* About page */}
-        <div className={`${this.state.Page === Page.About ? 'custom-show' : 'custom-hidden'} page-location`} style={{width: '80vw'}}>          
-          <div className='flex'>
-            <div className='w-48 mg:w-64 h-48 md:h-64'>
-              <img 
-                src={'images/mo-jedi.jpg'} 
-                alt='Mo Jiwa'
-                className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-full lg:border-4 my-image cursor-pointer`}
-                onClick={() => this.setState({Page: Page.Contact})}/>
-            </div>         
-            <div className='m-10 flex-row cursor-default'>
-              <p>I am a software developer living and working in the UK.
-              <br />I work for a company based in London that designs and builds financial and commodities trading software.</p>
-              <br />
-              <p>I primarily work in an MSSQL -> .Net (C# | WPF) tech stack; but more recently find myself venturing more  
-              <br />and more into the world of web development and devOps, working in a Linux -> Docker -> MySQL -> Python -> Node -> React 
-              <br /> tech stack, where I have created a number of <span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.setState({Page: Page.Portfolio})}>internal tools</span> and hackathon projects.</p>
-              <br />
+        <div 
+          className={`${this.state.Page === Page.About ? '' : 'hidden'} container mx-auto mt-10`}>
+          <div className='flex-row'>
+            <img 
+              src={'images/mo-jedi.jpg'} 
+              alt='Mo Jiwa'              
+              className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} mt-4 w-3/6 sm:w-64 sm:h-auto sm:ml-2 ml-1/4 border-gray-300 border-solid border-2 rounded-md md:border-4 my-image cursor-pointer`}
+              onClick={() => this.setState({Page: Page.Contact})}/>            
+            <div className='text-xs mt-4 md:text-base ml-2'>
+              <p>I am a software developer living and working in the UK.<br/>I work for a company based in London that designs and builds financial and commodities trading software.</p>
+              <br/>
+              <p>I primarily work in an MSSQL -> .Net (C# | WPF) tech stack; but more recently find myself venturing more and more into the world of web development and devOps, working in a 
+              Linux -> Docker -> MySQL -> Python -> Node -> React tech stack, where I have created a number of <span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.setState({Page: Page.Portfolio})}>internal tools</span> and hackathon projects.</p>
+              <br/>
               <p>When I'm not coding for work, I'm usually coding for fun (I have a life, really), gaming, playing D&D, DJ'ing, or something else geeky... When I'm not looking after my kid, of course.</p>
-              <br />
+              <br />              
+            </div>            
+            <div className='cursor-default'>
               <div className='animated-list mt-4 ml-2 border-teal-600 border-l-4'>
-                <span className='transition-colors duration-300 hover:text-teal-600 text-2xl ml-4'>Skills</span>
+                <span className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4'>Skills</span>
                 <ul>                
                   {LIST_OF_SKILLS.sort().map((skill: string) =>
                     <li className='ml-6 hover:text-teal-600' key={skill}>{skill}</li>
@@ -147,39 +149,24 @@ class App extends React.PureComponent<IAppProps, IAppState> {
               </div>  
               <div className='animated-list mt-4 ml-2 border-teal-600 border-l-4'>
                 <ul>
-                <span className='transition-colors duration-300 hover:text-teal-600 text-2xl ml-4'>Weapons of Choice</span>
+                <span className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4'>Weapons of Choice</span>
                   {LIST_OF_TOOLS.sort().map((tool: string) =>
                     <li className='ml-6 hover:text-teal-600' key={tool}>{tool}</li>
                   )}
                 </ul>
-              </div>   
-            </div> 
-            <div className='mt-32'>
-            <svg 
-              className='cursor-pointer transition-colors duration-300 ease-linear hover:text-teal-600'
-              onClick={() => this.setState({ Page: Page.Portfolio })}
-              fill="currentColor" 
-              height="40px"
-              width="40px"
-              viewBox="0 0 20 20">
-              <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" 
-                clipRule="evenodd" 
-                fillRule="evenodd">
-              </path>
-            </svg>
-          </div>         
-          </div>  
-        </div>
-        {/* Portfolio page */}
-        <div className={`${this.state.Page === Page.Portfolio ? 'custom-show' : 'custom-hidden'} page-location`} style={{width: '80vw'}}>          
-          <div>
-            <div className='mb-10'>              
-              <div>
-                <span onClick={() => this.slideElement('library')} className='w-auto text-3xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>Library</span>
               </div>
-              <div id='library' className='flex slide-up'>
-                <iframe title='Library Demo' width="800" src="https://www.youtube.com/embed/4fu9WvQOjGY" allow="accelerometer; fullscreen; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
-                <span className='ml-2'>
+            </div>      
+          </div>
+        </div>          
+        {/* Portfolio page */}
+        <div className={`${this.state.Page === Page.Portfolio ? '' : 'hidden'} container ml-2 md:mx-auto mt-10`}>          
+          <div>
+            <div className='mb-6'>              
+              <div>
+                <span onClick={() => this.slideElement('library')} className='md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>Library</span>
+              </div>
+              <div id='library' className='slide-up'>                
+                <span className='md:text-base text-xs'>
                   Developed with a MySQL + Node Express backend, and React (TypeScript) with Tailwind CSS on the front-end.
                   <br />The project was to develop a easily maintainable company library where end-users 
                   <br />could checkout or reserve books themselves without needing to bother admin staff.
@@ -192,18 +179,15 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                   <li>Email notifications for checkouts, reservations, overdue books</li>
                   <li>Notifications within the browser for overdue books</li>
                 </span>
+                <iframe className='h-48 md:h-84 md:w-3/6'  title='Library Demo' src="https://www.youtube.com/embed/4fu9WvQOjGY" allow="accelerometer; fullscreen; encrypted-media;"></iframe>
               </div>
             </div>
-            <div className='mb-10'>
+            <div className='mb-6'>
               <div>
-                <span onClick={() => this.slideElement('tagbot')} className='w-auto text-3xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>TagBot</span>
+                <span onClick={() => this.slideElement('tagbot')} className='w-auto md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>TagBot</span>
               </div>
-              <div id='tagbot' className='flex slide-up'>
-                <img 
-                  src={'images/tagbot2.png'} 
-                  alt='TagBot Screenshot'
-                  className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-md lg:border-4`} />
-                <span className='ml-2'>
+              <div id='tagbot' className='slide-up'>                
+                <span className='md:text-base text-xs'>
                   This project was developed using Docker running multiple Linux containers to host MySQL, Python with Flask, and NGINX.
                   <br />The front-end was React with TypeScript.
                   <br />The goal of the project was to create the ability to create and manage custom tag groups
@@ -213,47 +197,35 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                   <li>Searching for pre-existing tagged groups per room</li>
                   <li>A web interface to create, delete and manage custom tag groups</li>
                 </span>
+                <a href={'images/tagbot2.png'} target='_blank' rel="noopener noreferrer">
+                  <img 
+                    src={'images/tagbot2.png'} 
+                    height='60%'
+                    width='60%'
+                    alt='TagBot Screenshot'
+                    className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-md md:border-4`} />
+                  </a>
               </div>
             </div>
-            <div className='mb-10'>
-              <span className='w-auto text-3xl mb-8'>More on the way...</span>
+            <div className='mb-6'>
+              <span className='w-auto md:text-1xl text-xs mb-8'>More on the way...</span>
            </div>
           </div>         
         </div>
         {/* Contact page */}
-        <div className={`${this.state.Page === Page.Contact ? 'custom-show' : 'custom-hidden'} page-location`}>          
-          <div className='flex flex-row-reverse justify-between' style={{width: '35vw'}}>
-            <div className='w-48 mg:w-78 h-48 md:h-78'>
-                <img 
-                  src={'images/mo-dj.jpg'} 
-                  alt='Mo Jiwa DJ'
-                  className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-full lg:border-4 my-image`} />
-            </div>      
+        <div className={`${this.state.Page === Page.Contact ? '' : 'hidden'} container md:mx-auto mt-10 ml-2`}>          
+          <div>
+            <img 
+              src={'images/mo-dj.jpg'} 
+              alt='Mo Jiwa DJ'
+              className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} ml-1/4 md:ml-0 mt-4 w-3/6 sm:w-64 sm:h-auto border-gray-300 border-solid border-2 rounded-md md:border-4 my-image`} />
+          </div>    
+          <div className=''>              
             <div>          
-              <div className='lg:text-2xl text-xl mb-2'>
-                Work
+              <div className='md:flex md:text-2xl text-xl mt-4 mb-2'>
+                Business(ish)
               </div>
               <div className='flex items-center ml-2 mb-4 slide-right'>
-                <a target='_blank' rel="noopener noreferrer" href='https://instagram.com/mojiwa'>
-                  <svg               
-                    className='social-media-buttons'
-                    viewBox="0 0 24 24">
-                      <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                  </svg>            
-                </a>
-                <span className='ml-2 social-media-text'>Instagram: mojiwa</span>            
-              </div>    
-              <div className='flex items-center ml-2 mb-4 slide-right'>
-                <a target='_blank' rel="noopener noreferrer" href='https://twitter.com/timetraveller_x'>
-                  <svg               
-                    className='social-media-buttons'
-                    viewBox="0 0 24 24">
-                      <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/>    
-                  </svg> 
-                </a>              
-                <span className='ml-2 social-media-text'>Twitter: timetraveller_x</span>              
-              </div>        
-              <div className='flex items-center ml-2 mb-8 slide-right'>
                 <a target='_blank' rel="noopener noreferrer" href='https://github.com/mojiwa'>
                   <svg               
                     className='social-media-buttons'
@@ -263,6 +235,26 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 </a>              
                 <span className='ml-2 social-media-text'>GitHub: mojiwa</span>              
               </div>
+              <div className='flex items-center ml-2 mb-4 slide-right'>
+                <a target='_blank' rel="noopener noreferrer" href='https://twitter.com/timetraveller_x'>
+                  <svg               
+                    className='social-media-buttons'
+                    viewBox="0 0 24 24">
+                      <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/>    
+                  </svg> 
+                </a>              
+                <span className='ml-2 social-media-text'>Twitter: timetraveller_x</span>              
+              </div>    
+              <div className='flex items-center ml-2 mb-8 slide-right'>
+                <a target='_blank' rel="noopener noreferrer" href='https://instagram.com/mojiwa'>
+                  <svg               
+                    className='social-media-buttons'
+                    viewBox="0 0 24 24">
+                      <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                  </svg>            
+                </a>
+                <span className='ml-2 social-media-text'>Instagram: mojiwa</span>            
+              </div>                                    
               <div className='lg:text-2xl text-xl mb-2'>
                 Side hustle
               </div>

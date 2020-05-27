@@ -1,7 +1,5 @@
 body {
   background-color: #1A202C;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 a {
@@ -28,8 +26,7 @@ a:hover {
 .header {
   margin: 0;
   position: absolute;
-  top: 0;    
-  transform: translate(50%, 50%);
+  top: 0;      
 }
 
 .header-center {
@@ -62,21 +59,23 @@ a:hover {
 }
 
 .custom-hidden {
+  display: none;
+}
+
+.custom-show {
+  display: block;
+}
+
+.custom-hidden2 {
   visibility: hidden;
   opacity: 0;
   transition: 0.4s ease-in-out;
 }
 
-.custom-show {
+.custom-show2 {
   visibility: visible;
   opacity: 1;
   transition: 0.4s ease-in-out;
-}
-
-.page-location { 
-  position: absolute;
-  top: 10%;
-  left: 10%;
 }
 
 .my-image {
@@ -88,28 +87,27 @@ a:hover {
   transition: filter 0.3s ease-in-out;
 }
 
-.animated-list li {
-  position: relative;  
+.animated-list li {  
   opacity: 0;
   max-height: 0;
   transition: all 0.6s ease-in-out;
-  animation: slideOut 0.6s ease-in forwards;  
+  animation: slideOut 0.6s ease-in forwards;
 }
 
 @keyframes slideIn {
-  0% { transform: translateX(50%); }
+  0% { transform: translateX(5%); }
   100% { transform: translateX(0%); }
 }
 
 @keyframes slideOut {
   0% { transform: translateX(0%); }
-  100% { transform: translateX(50%); }
+  100% { transform: translateX(5%); }
 }
 
 .animated-list:hover li{  
   opacity: 1;  
-  max-height: 400px;    
-  transform: translateX(50%);  
+  max-height: 400px;  
+  transform: translateX(5%);  
   transition-property: all , color;
   transition-duration: 0.6s, 0.3s;
   animation: colorChange 3s ease-in-out alternate-reverse, slideIn 0.6s ease-in forwards;    
@@ -214,30 +212,10 @@ a:hover {
   transition: 0.4s ease-in-out;  
 }
 
-.slide-up { 
-  opacity: 0; 
-  height: 0px;
-  transition: 0.6s ease-in-out;
-}
-
-.slide-down {  
-  opacity: 1;
-  height: 600px;    
-  transition: 0.6s ease-in-out;
-}
-
-.slide-up > span {
+.slide-up {   
   display: none;
 }
 
-.slide-up > img {
-  width: 800px;
-  height: 0px;   
-  transition: 0.6s ease-in-out;
-}
-
-.slide-down > img {
-  width: 900px;
-  height: 528px;
-  transition: 0.6s ease-in-out;
+.slide-down {  
+  display: block;
 }

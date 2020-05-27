@@ -6,6 +6,7 @@ module.exports = {
   separator: ':',
   theme: {
     screens: {
+      mobile: '320px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
@@ -152,6 +153,7 @@ module.exports = {
       '78': '18rem',
       '84': '21rem',
       '96': '24rem',
+      '1/4': '25%',
     },
     backgroundColor: theme => theme('colors'),
     backgroundOpacity: theme => theme('opacity'),
@@ -319,7 +321,7 @@ module.exports = {
       decimal: 'decimal',
     },
     margin: (theme, { negative }) => ({
-      auto: 'auto',
+      auto: 'auto',      
       ...theme('spacing'),
       ...negative(theme('spacing')),
     }),

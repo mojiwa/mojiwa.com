@@ -30,6 +30,7 @@ const LIST_OF_TOOLS : string[] = [
   'NUnit',  
   'Node.js',  
   'Tailwind CSS',
+  'Lightsaber',
 ];
 
 const THEME_LIGHT_HEX: string = '#E2E8F0';
@@ -53,6 +54,17 @@ class App extends React.PureComponent<IAppProps, IAppState> {
   setTheme = (theme: Theme) => {
     document.body.style.backgroundColor = theme === Theme.Dark ? THEME_DARK_HEX : THEME_LIGHT_HEX;
     this.setState({ ThemeSwitch: theme });
+  }
+
+  slideElement(elementId: string) {
+    var element = document.getElementById(elementId);
+    if (element.classList.contains('slide-down')) {
+      element.classList.remove('slide-down');
+      element.classList.add('slide-up');
+    } else {
+      element.classList.add('slide-down');
+      element.classList.remove('slide-up');
+    }
   }
 
   render() {
@@ -106,7 +118,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
           </div>          
         </div>
         {/* About page */}
-        <div className={`${this.state.Page === Page.About ? 'custom-show' : 'custom-hidden'} page-location`}>          
+        <div className={`${this.state.Page === Page.About ? 'custom-show' : 'custom-hidden'} page-location`} style={{width: '80vw'}}>          
           <div className='flex'>
             <div className='w-48 mg:w-64 h-48 md:h-64'>
               <img 
@@ -123,7 +135,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
               <br />and more into the world of web development and devOps, working in a Linux -> Docker -> MySQL -> Python -> Node -> React 
               <br /> tech stack, where I have created a number of <span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.setState({Page: Page.Portfolio})}>internal tools</span> and hackathon projects.</p>
               <br />
-              <p>When I'm not coding for work, I'm usually coding for fun (I have a life, really), gaming, DJ'ing, or something else geeky... When I'm not looking after my kid, of course.</p>
+              <p>When I'm not coding for work, I'm usually coding for fun (I have a life, really), gaming, playing D&D, DJ'ing, or something else geeky... When I'm not looking after my kid, of course.</p>
               <br />
               <div className='animated-list mt-4 ml-2 border-teal-600 border-l-4'>
                 <span className='transition-colors duration-300 hover:text-teal-600 text-2xl ml-4'>Skills</span>
@@ -159,9 +171,53 @@ class App extends React.PureComponent<IAppProps, IAppState> {
           </div>  
         </div>
         {/* Portfolio page */}
-        <div className={`${this.state.Page === Page.Portfolio ? 'custom-show' : 'custom-hidden'} page-location`}>          
+        <div className={`${this.state.Page === Page.Portfolio ? 'custom-show' : 'custom-hidden'} page-location`} style={{width: '80vw'}}>          
           <div>
-            Please hang in there, this page is coming...
+            <div className='mb-10'>              
+              <div>
+                <span onClick={() => this.slideElement('library')} className='w-auto text-3xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>Library</span>
+              </div>
+              <div id='library' className='flex slide-up'>
+                <iframe title='Library Demo' width="800" src="https://www.youtube.com/embed/4fu9WvQOjGY" allow="accelerometer; fullscreen; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                <span className='ml-2'>
+                  Developed with a MySQL + Node Express backend, and React (TypeScript) with Tailwind CSS on the front-end.
+                  <br />The project was to develop a easily maintainable company library where end-users 
+                  <br />could checkout or reserve books themselves without needing to bother admin staff.
+                  <br />Functionality includes:
+                  <li>Adding books</li>
+                  <li>Removing books</li>
+                  <li>Checking out books</li>
+                  <li>Reserving books</li>
+                  <li>Live updating for all connected browsers</li>
+                  <li>Email notifications for checkouts, reservations, overdue books</li>
+                  <li>Notifications within the browser for overdue books</li>
+                </span>
+              </div>
+            </div>
+            <div className='mb-10'>
+              <div>
+                <span onClick={() => this.slideElement('tagbot')} className='w-auto text-3xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>TagBot</span>
+              </div>
+              <div id='tagbot' className='flex slide-up'>
+                <img 
+                  src={'images/tagbot2.png'} 
+                  alt='TagBot Screenshot'
+                  className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-md lg:border-4`} />
+                <span className='ml-2'>
+                  This project was developed using Docker running multiple Linux containers to host MySQL, Python with Flask, and NGINX.
+                  <br />The front-end was React with TypeScript.
+                  <br />The goal of the project was to create the ability to create and manage custom tag groups
+                  <br />that could be ultilised within Google Chat. 
+                  <br />Functionality includes:
+                  <li>Adding TagBot to any room</li>
+                  <li>Searching for pre-existing tagged groups per room</li>
+                  <li>A web interface to create, delete and manage custom tag groups</li>
+                </span>
+              </div>
+            </div>
+            <div className='mb-10'>
+              <span className='w-auto text-3xl mb-8'>More on the way...</span>
+           </div>
           </div>         
         </div>
         {/* Contact page */}

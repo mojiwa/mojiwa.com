@@ -175,7 +175,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 Work
               </div>
               <div className='flex items-center ml-2 mb-4 slide-right'>
-                <a target='_blank' href='https://instagram.com/mojiwa'>
+                <a target='_blank' rel="noopener noreferrer" href='https://instagram.com/mojiwa'>
                   <svg               
                     className='social-media-buttons'
                     viewBox="0 0 24 24">
@@ -185,7 +185,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 <span className='ml-2 social-media-text'>Instagram: mojiwa</span>            
               </div>    
               <div className='flex items-center ml-2 mb-4 slide-right'>
-                <a target='_blank' href='https://twitter.com/timetraveller_x'>
+                <a target='_blank' rel="noopener noreferrer" href='https://twitter.com/timetraveller_x'>
                   <svg               
                     className='social-media-buttons'
                     viewBox="0 0 24 24">
@@ -195,7 +195,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 <span className='ml-2 social-media-text'>Twitter: timetraveller_x</span>              
               </div>        
               <div className='flex items-center ml-2 mb-8 slide-right'>
-                <a target='_blank' href='https://github.com/mojiwa'>
+                <a target='_blank' rel="noopener noreferrer" href='https://github.com/mojiwa'>
                   <svg               
                     className='social-media-buttons'
                     viewBox="0 0 24 24">
@@ -208,7 +208,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 Side hustle
               </div>
               <div className='flex items-center ml-2 mb-4 slide-right'>
-                <a target='_blank' href='https://instagram.com/djmojiwa'>
+                <a target='_blank' rel="noopener noreferrer" href='https://instagram.com/djmojiwa'>
                   <svg               
                     className='social-media-buttons'
                     viewBox="0 0 24 24">
@@ -218,7 +218,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 <span className='ml-2 social-media-text'>Instagram: djmojiwa</span>            
               </div>    
               <div className='flex items-center ml-2 mb-8 slide-right'>
-                <a target='_blank' href='https://facebook.com/djmojiwa'>
+                <a target='_blank' rel="noopener noreferrer" href='https://facebook.com/djmojiwa'>
                   <svg               
                     className='social-media-buttons'
                     viewBox="0 0 24 24">
@@ -231,7 +231,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 Play
               </div>
               <div className='flex items-center ml-2 mb-4 slide-right'>
-                <a target='_blank' href='https://steamcommunity.com/id/mojiwa/'>
+                <a target='_blank' rel="noopener noreferrer" href='https://steamcommunity.com/id/mojiwa/'>
                   <svg               
                     className='social-media-buttons'
                     viewBox="0 0 24 24">
@@ -241,7 +241,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 <span className='ml-2 social-media-text'>Steam: mojiwa</span>            
               </div>   
               <div className='flex items-center ml-2 mb-4 slide-right'>
-                <a target='_blank' href='https://www.gog.com/u/mojiwa'>
+                <a target='_blank' rel="noopener noreferrer" href='https://www.gog.com/u/mojiwa'>
                   <svg               
                     className='social-media-buttons'
                     viewBox="0 0 24 24">

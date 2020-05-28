@@ -94,6 +94,15 @@ a:hover {
   animation: slideOut 0.6s ease-in forwards;
 }
 
+.animated-list:hover li{  
+  opacity: 1;  
+  max-height: 400px;  
+  transform: translateX(5%);  
+  transition-property: all , color;
+  transition-duration: 0.6s, 0.3s;
+  animation: colorChange 3s ease-in-out alternate-reverse, slideIn 0.6s ease-in forwards;    
+}
+
 @keyframes slideIn {
   0% { transform: translateX(5%); }
   100% { transform: translateX(0%); }
@@ -102,15 +111,6 @@ a:hover {
 @keyframes slideOut {
   0% { transform: translateX(0%); }
   100% { transform: translateX(5%); }
-}
-
-.animated-list:hover li{  
-  opacity: 1;  
-  max-height: 400px;  
-  transform: translateX(5%);  
-  transition-property: all , color;
-  transition-duration: 0.6s, 0.3s;
-  animation: colorChange 3s ease-in-out alternate-reverse, slideIn 0.6s ease-in forwards;    
 }
 
 @keyframes colorChange {
@@ -206,7 +206,7 @@ a:hover {
   transition: 0.3s ease-in-out;  
 }
 
-.slide-right:hover > span {
+.slide-right:hover > label {
   opacity: 1;
   transform: translateX(0%);
   transition: 0.4s ease-in-out;  

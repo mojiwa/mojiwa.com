@@ -1,5 +1,6 @@
 body {
   background-color: #1A202C;
+  user-select: none;
 }
 
 a {

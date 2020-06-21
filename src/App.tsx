@@ -8,37 +8,12 @@ import {
 
 import { Theme, Page } from './enums';
 import Home from './Home';
+import About from './About';
+import Portfolio from './Portfolio';
+import Contact from './Contact';
 import Button from './Button';
 
-const LIST_OF_SKILLS : string[] = [
-  'C#',
-  'WPF',
-  'SQL',
-  'Powershell',
-  'Python',
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'React',
-  'Agile: Scrum | Kanban',
-  'TDD',
-  'Coded UI',
-];
 
-const LIST_OF_TOOLS : string[] = [
-  'Visual Studio',
-  'Visual Studio Code',
-  'Rider',
-  'MSSQL',
-  'MySQL',
-  'Git',
-  'Docker',
-  'Hyper-V',
-  'NUnit',  
-  'Node.js',  
-  'Tailwind CSS',
-  'Lightsaber',
-];
 
 const THEME_LIGHT_HEX: string = '#E2E8F0';
 const THEME_DARK_HEX: string = '#1A202C';
@@ -63,17 +38,6 @@ class App extends React.PureComponent<{}, IAppState> {
     this.setState({ Page: page });
   }
 
-  slideElement(elementId: string) {
-    var element = document.getElementById(elementId);
-    if (element.classList.contains('slide-down')) {
-      element.classList.remove('slide-down');
-      element.classList.add('slide-up');
-    } else {
-      element.classList.add('slide-down');
-      element.classList.remove('slide-up');
-    }
-  }
-
   render() {
     return (
       <Router>
@@ -87,15 +51,21 @@ class App extends React.PureComponent<{}, IAppState> {
                     <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Home ? 'text-teal-600' : ''}`}>Home</span>
                   </button>
                 </Link>
-                <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.About})}>
-                  <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.About ? 'text-teal-600' : ''}`}>About</span>
-                </button>
-                <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Portfolio})}>
-                  <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Portfolio ? 'text-teal-600' : ''}`}>Portfolio</span>
-                </button>
-                <button className='focus:outline-none' onClick={() => this.setState({Page: Page.Contact})}>
-                  <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Contact ? 'text-teal-600' : ''}`}>Contact</span>
-                </button>
+                <Link to='/about'>
+                  <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.About})}>
+                    <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.About ? 'text-teal-600' : ''}`}>About</span>
+                  </button>
+                </Link>
+                <Link to='/portfolio'>
+                  <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Portfolio})}>
+                    <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Portfolio ? 'text-teal-600' : ''}`}>Portfolio</span>
+                  </button>
+                </Link>
+                <Link to='/contact'>
+                  <button className='focus:outline-none' onClick={() => this.setState({Page: Page.Contact})}>
+                    <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Contact ? 'text-teal-600' : ''}`}>Contact</span>
+                  </button>
+                </Link>
               </div>
             </div>        
             {/* Light/Dark theme button */}
@@ -113,9 +83,20 @@ class App extends React.PureComponent<{}, IAppState> {
         </div>
           
         <Switch>
-          <Route path='/'>
-            <Home Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
-          </Route>
+          <div className={`${this.state.ThemeSwitch === Theme.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} font-openSans text-sm md:text`}>
+            <Route exact path='/'>
+              <Home Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+            </Route>
+            <Route path='/about'>
+              <About Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+            </Route>
+            <Route path='/portfolio'>
+              <Portfolio Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+            </Route>
+            <Route path='/contact'>
+              <Contact Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+            </Route>
+          </div>
         </Switch>
       </Router>
     );

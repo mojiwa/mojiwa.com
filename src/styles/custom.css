@@ -1,3 +1,7 @@
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #1A202C;
   user-select: none;
@@ -91,6 +95,7 @@ a:hover {
 .animated-list li {  
   opacity: 0;
   max-height: 0;
+  overflow: hidden;
   transition: all 0.6s ease-in-out;
   animation: slideOut 0.6s ease-in forwards;
 }
@@ -214,9 +219,43 @@ a:hover {
 }
 
 .slide-up {   
-  display: none;
+  height: 0px;  
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
 }
 
 .slide-down {  
-  display: block;
+  height: 600px;      
+  overflow: auto;
+  overflow-y: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-down {  
+    padding: 10px;
+    height: 550px;    
+    overflow: auto;    
+    overflow-y: hidden;
+    transition: 0.5s ease-in-out;
+  }
+}
+
+.fade-in {
+  height: 80vh;      
+  opacity: 1;  
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  height: 0px;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hide-landing-page {
+  opacity: 0;
+  height: 0px;
+  overflow: hidden;  
 }

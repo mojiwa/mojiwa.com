@@ -102,7 +102,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
         </div>
         
         {/* Home page */}
-        <div className={`${this.state.Page === Page.Home ? '' : 'hidden'}`}>           
+        <div className={`${this.state.Page === Page.Home ? 'fade-in' : 'hide-landing-page'}`}>           
           <div className={`font-thin center-content text-center cursor-default`} >
             <span className='text-xl md:text-5xl'>Hi, I'm <span className='font-normal text-teal-600'>Mo Jiwa</span>.</span>
             <br />
@@ -121,8 +121,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
           </div>          
         </div>
         {/* About page */}
-        <div 
-          className={`${this.state.Page === Page.About ? '' : 'hidden'} container mx-auto mt-10`}>
+        <div className={`${this.state.Page === Page.About ? 'fade-in' : 'fade-out'} container mx-auto`}>
           <div className='flex-row'>
             <img 
               src={'images/mo-jedi.jpg'} 
@@ -132,8 +131,8 @@ class App extends React.PureComponent<IAppProps, IAppState> {
             <div className='text-xs mt-4 md:text-base ml-2'>
               <p>I am a software developer based in the UK for a company that designs and builds financial and commodities trading software.</p>
               <br/>
-              <p>I primarily work in an MSSQL -> .Net (C# | WPF) tech stack; but recently have found myself venturing more and more into the world of web development and devOps, working in a 
-              Linux -> Docker -> MySQL -> Python -> Node -> React tech stack, where I have created a number of <span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.setState({Page: Page.Portfolio})}>internal tools</span> and hackathon projects.</p>
+              <p>I primarily work in an MSSQL {'->'} .Net (C# | WPF) tech stack; but recently have found myself venturing more and more into the world of web development and devOps, working in a 
+              Linux {'->'} Docker {'->'} MySQL {'->'} Python {'->'} Node {'->'} React tech stack, where I have created a number of <span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.setState({Page: Page.Portfolio})}>internal tools</span> and hackathon projects.</p>
               <br/>
               <p>When I'm not coding for work, I'm generally looking after the little one. But after she goes to bed, I'm usually coding for fun (I have a life, really), gaming, playing D&D, DJ'ing, or something else geeky...</p>
               <br />              
@@ -143,7 +142,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 <label className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4'>Skills</label>
                 <ul>                
                   {LIST_OF_SKILLS.sort().map((skill: string) =>
-                    <li className='ml-6 hover:text-teal-600' key={skill}><label>{skill}</label></li>
+                    <li className='ml-6' key={skill}><label>{skill}</label></li>
                   )}
                 </ul>
               </div>  
@@ -151,7 +150,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
                 <ul>
                 <label className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4'>Weapons of Choice</label>
                   {LIST_OF_TOOLS.sort().map((tool: string) =>
-                    <li className='ml-6 hover:text-teal-600' key={tool}><label>{tool}</label></li>
+                    <li className='ml-6' key={tool}><label>{tool}</label></li>
                   )}
                 </ul>
               </div>
@@ -159,7 +158,7 @@ class App extends React.PureComponent<IAppProps, IAppState> {
           </div>
         </div>          
         {/* Portfolio page */}
-        <div className={`${this.state.Page === Page.Portfolio ? '' : 'hidden'} container ml-2 md:mx-auto mt-10`}>          
+        <div className={`${this.state.Page === Page.Portfolio ? 'fade-in' : 'fade-out'} container ml-2 md:mx-auto mt-4`}>          
           <div>
             <div className='mb-6'>              
               <div>
@@ -211,12 +210,12 @@ class App extends React.PureComponent<IAppProps, IAppState> {
           </div>         
         </div>
         {/* Contact page */}
-        <div className={`${this.state.Page === Page.Contact ? '' : 'hidden'} container md:mx-auto mt-10 ml-2`}>          
+        <div className={`${this.state.Page === Page.Contact ? 'fade-in' : 'fade-out'} container mt-4 md:mx-auto ml-2`}>          
           <div>
             <img 
               src={'images/mo-dj.jpg'} 
               alt='Mo Jiwa DJ'
-              className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} ml-1/4 md:ml-0 mt-4 w-3/6 sm:w-64 sm:h-auto border-gray-300 border-solid border-2 rounded-md md:border-4 my-image`} />
+              className={`${this.state.ThemeSwitch === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} ml-1/4 md:ml-0 w-3/6 sm:w-64 sm:h-auto border-gray-300 border-solid border-2 rounded-md md:border-4 my-image`} />
           </div>    
           <div className=''>              
             <div>          

@@ -39,13 +39,18 @@ interface IAboutProps {
 }
 
 export default class About extends React.PureComponent<IAboutProps, {}> {
+
+  componentDidMount = () => { 
+    this.props.SetPage(Page.About);
+  }
+  
   componentDidUpdate = () => {
     this.props.SetPage(Page.About);
   }
 
   render() {
     return(
-      <div className=''>
+      <div className='md:mx-auto md:w-10/12'>
         <div className='flex-row'>
           <Link to='/contact'>
             <img 
@@ -63,17 +68,17 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
             <p>When I'm not coding for work, I'm generally looking after the little one. But after she goes to bed, I'm usually coding for fun (I have a life, really), gaming, playing D&D, DJ'ing, or something else geeky...</p>
             <br />              
           </div>            
-          <div>
-            <div className='animated-list mt-4 ml-2 border-teal-600 border-l-4'>
-              <label className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4'>Skills</label>
+          <div className='w-2/3 md:w-1/2 md:flex justify-between'>
+            <div className='animated-list mt-4 ml-2'>
+              <label className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4 border-teal-600 border-l-4 px-4'>Skills</label>
               <ul>                
                 {LIST_OF_SKILLS.sort().map((skill: string) =>
                   <li className='ml-6' key={skill}><label>{skill}</label></li>
                 )}
               </ul>
             </div>  
-            <div className='animated-list mt-4 ml-2 border-teal-600 border-l-4'>
-              <label className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4'>Weapons of Choice</label>
+            <div className='animated-list mt-4 ml-2'>
+              <label className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4 border-teal-600 border-l-4 px-4'>Weapons of Choice</label>
               <ul>
                 {LIST_OF_TOOLS.sort().map((tool: string) =>
                   <li className='ml-6' key={tool}><label>{tool}</label></li>

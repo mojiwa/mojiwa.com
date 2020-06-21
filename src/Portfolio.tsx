@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { Theme, Page } from './enums';
 
@@ -9,6 +8,14 @@ interface IPortfolioProps {
 }
 
 export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> {
+  componentDidMount = () => { 
+    this.props.SetPage(Page.Portfolio);
+  }
+  
+  componentDidUpdate = () => {
+    this.props.SetPage(Page.Portfolio);
+  }
+
   slideElement(elementId: string) {
     var element = document.getElementById(elementId);
     if (element.classList.contains('slide-down')) {
@@ -22,7 +29,7 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
 
   render() {
     return(
-      <div>
+      <div className='md:w-10/12 md:mx-auto'>
         <div className='mb-6'>              
           <div>
             <span onClick={() => this.slideElement('library')} className='md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>Library</span>

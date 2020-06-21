@@ -16,10 +16,6 @@ a:hover {
   transition: color 0.3s ease-in-out
 }
 
-.page-layout {
-  transition: visibility 4s, ease;
-}
-
 .center-content {
   margin: 0;
   position: absolute;
@@ -28,59 +24,10 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 
-.header {
-  margin: 0;
-  position: absolute;
-  top: 0;      
-}
-
-.header-center {
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 50%;  
-  transform: translate(-50%, -50%);
-}
-
-.footer {
-  margin: 0;
-  position: absolute;
-  bottom: 0;    
-  transform: translate(50%, -50%);  
-}
-
-.footer-center {
-  margin: 0;
-  position: absolute;
-  bottom: 0;
-  left: 50%;  
-  transform: translate(-50%, -50%);
-}
-
 .rotate-svg {
   transform: rotateZ(90deg);
   transition: transform;
   transition-duration: 0.3s;
-}
-
-.custom-hidden {
-  display: none;
-}
-
-.custom-show {
-  display: block;
-}
-
-.custom-hidden2 {
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.4s ease-in-out;
-}
-
-.custom-show2 {
-  visibility: visible;
-  opacity: 1;
-  transition: 0.4s ease-in-out;
 }
 
 .my-image {
@@ -110,13 +57,13 @@ a:hover {
 }
 
 @keyframes slideIn {
-  0% { transform: translateX(5%); }
+  0% { transform: translateX(50%); }
   100% { transform: translateX(0%); }
 }
 
 @keyframes slideOut {
   0% { transform: translateX(0%); }
-  100% { transform: translateX(5%); }
+  100% { transform: translateX(50%); }
 }
 
 @keyframes colorChange {
@@ -239,23 +186,4 @@ a:hover {
     overflow-y: hidden;
     transition: 0.5s ease-in-out;
   }
-}
-
-.fade-in {
-  height: 80vh;      
-  opacity: 1;  
-  transition: opacity 0.5s ease-in-out;
-}
-
-.fade-out {
-  opacity: 0;
-  height: 0px;
-  overflow: hidden;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.hide-landing-page {
-  opacity: 0;
-  height: 0px;
-  overflow: hidden;  
 }

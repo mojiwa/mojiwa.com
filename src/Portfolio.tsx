@@ -18,12 +18,12 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
 
   slideElement(elementId: string) {
     var element = document.getElementById(elementId);
-    if (element.classList.contains('slide-down')) {
-      element.classList.remove('slide-down');
-      element.classList.add('slide-up');
+    if (element?.classList.contains('slide-down')) {
+      element?.classList.remove('slide-down');
+      element?.classList.add('slide-up');
     } else {
-      element.classList.add('slide-down');
-      element.classList.remove('slide-up');
+      element?.classList.add('slide-down');
+      element?.classList.remove('slide-up');
     }
   }
 

@@ -13,8 +13,6 @@ import Portfolio from './Portfolio';
 import Contact from './Contact';
 import Button from './Button';
 
-
-
 const THEME_LIGHT_HEX: string = '#E2E8F0';
 const THEME_DARK_HEX: string = '#1A202C';
 
@@ -26,7 +24,7 @@ interface IAppState {
 class App extends React.PureComponent<{}, IAppState> {
   state = {
     ThemeSwitch: Theme.Dark,
-    Page: Page.Home
+    Page: Page.Home,
   }
 
   setTheme = (theme: Theme) => {

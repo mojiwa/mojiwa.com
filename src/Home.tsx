@@ -12,7 +12,7 @@ export default class Home extends React.PureComponent<IHomeProps, {}> {
 
     render() {
         return(
-            <div>           
+            <div id='home-page'>           
                 <div className={`font-thin center-content text-center cursor-default`} >
                     <span className='text-xl md:text-5xl'>Hi, I'm <span className='font-normal text-teal-600'>Mo Jiwa</span>.</span>
                     <br />

@@ -50,7 +50,7 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
 
   render() {
     return(
-      <div className='md:mx-auto md:w-10/12'>
+      <div className='md:mx-auto md:w-10/12 page-fade-in'>
         <div className='flex-row'>
           <Link to='/contact'>
             <img 

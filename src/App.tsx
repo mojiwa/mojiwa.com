@@ -87,23 +87,25 @@ class App extends React.PureComponent<{}, IAppState> {
         </div>
           
         <Switch>
-          <div className={`${this.state.ThemeSwitch === Theme.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} font-openSans text-sm md:text mt-4`}>
-            <Route exact path='/'>
-              <Home Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
-            </Route>
-            <Route path='/about'>
-              <About Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
-            </Route>
-            <Route path='/portfolio'>
-              <Portfolio Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
-            </Route>
-            <Route path='/contact'>
-              <Contact Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
-            </Route>
-            <Route path='/blog'>
-              <Blog Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
-            </Route>
-          </div>
+          <React.Fragment>
+            <div className={`${this.state.ThemeSwitch === Theme.Dark ? 'bg-gray-900 text-gray-300' : 'bg-gray-300 text-gray-900'} font-openSans text-sm md:text mt-4`}>
+              <Route exact path='/'>
+                <Home Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+              </Route>
+              <Route path='/about'>
+                <About Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+              </Route>
+              <Route path='/portfolio'>
+                <Portfolio Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+              </Route>
+              <Route path='/contact'>
+                <Contact Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+              </Route>
+              <Route path='/blog'>
+                <Blog Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+              </Route>
+            </div>
+          </React.Fragment>
         </Switch>
       </Router>
     );

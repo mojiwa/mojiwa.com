@@ -19,7 +19,7 @@ export default class Contact extends React.PureComponent<IContactProps, {}> {
 
   render() {
     return(
-      <div className='md:w-10/12 md:mx-auto'>          
+      <div className='md:w-10/12 md:mx-auto page-fade-in'>          
         <div>
           <img 
             src={'images/mo-dj.jpg'} 

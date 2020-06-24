@@ -19,7 +19,7 @@ export default class Blog extends React.PureComponent<IBlogProps, {}> {
 
   render() {
     return(
-      <div className='md:mx-auto md:w-10/12'>
+      <div className='md:mx-auto md:w-10/12 page-fade-in'>
      
       </div>          
     );

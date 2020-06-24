@@ -11,6 +11,7 @@ import Home from './Home';
 import About from './About';
 import Portfolio from './Portfolio';
 import Contact from './Contact';
+import Blog from './Blog';
 import Button from './Button';
 
 const THEME_LIGHT_HEX: string = '#E2E8F0';
@@ -45,7 +46,7 @@ class App extends React.PureComponent<{}, IAppState> {
             <div className='text-xs md:text-base'>
               <div className={`${this.state.Page !== Page.Home ? '' : 'hidden'} flex justify-evenly md:w-64`}>
                 <Link to='/'>
-                  <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Home})}>
+                  <button className='mx-2 focus:outline-none' onClick={() => this.setState({Page: Page.Home})}>
                     <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Home ? 'text-teal-600' : ''}`}>Home</span>
                   </button>
                 </Link>
@@ -60,8 +61,13 @@ class App extends React.PureComponent<{}, IAppState> {
                   </button>
                 </Link>
                 <Link to='/contact'>
-                  <button className='focus:outline-none' onClick={() => this.setState({Page: Page.Contact})}>
+                  <button className='mr-2 focus:outline-none' onClick={() => this.setState({Page: Page.Contact})}>
                     <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Contact ? 'text-teal-600' : ''}`}>Contact</span>
+                  </button>
+                </Link>
+                <Link to='/blog'>
+                  <button className='focus:outline-none' onClick={() => this.setState({Page: Page.Blog})}>
+                    <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Blog ? 'text-teal-600' : ''}`}>Blog</span>
                   </button>
                 </Link>
               </div>
@@ -93,6 +99,9 @@ class App extends React.PureComponent<{}, IAppState> {
             </Route>
             <Route path='/contact'>
               <Contact Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
+            </Route>
+            <Route path='/blog'>
+              <Blog Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
             </Route>
           </div>
         </Switch>

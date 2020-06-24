@@ -7,5 +7,6 @@ export enum Page {
   Home,
   About,
   Portfolio,
-  Contact
+  Contact,
+  Blog
 }

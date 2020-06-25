@@ -11,7 +11,6 @@ import Home from './Home';
 import About from './About';
 import Portfolio from './Portfolio';
 import Contact from './Contact';
-import Blog from './Blog';
 import Button from './Button';
 
 const THEME_LIGHT_HEX: string = '#E2E8F0';
@@ -65,11 +64,11 @@ class App extends React.PureComponent<{}, IAppState> {
                     <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Contact ? 'text-teal-600' : ''}`}>Contact</span>
                   </button>
                 </Link>
-                <Link to='/blog'>
-                  <button className='focus:outline-none' onClick={() => this.setState({Page: Page.Blog})}>
-                    <span className={`transform-transition duration-300 hover:text-teal-600 ${this.state.Page === Page.Blog ? 'text-teal-600' : ''}`}>Blog</span>
+                <a href='https://medium.com/@timetraveller_x' target='_blank' rel='noopener noreferrer'>
+                  <button className='focus:outline-none'>
+                    <span className={`transform-transition duration-300 hover:text-teal-600`}>Blog</span>
                   </button>
-                </Link>
+                </a>
               </div>
             </div>        
             {/* Light/Dark theme button */}
@@ -100,9 +99,6 @@ class App extends React.PureComponent<{}, IAppState> {
               </Route>
               <Route path='/contact'>
                 <Contact Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
-              </Route>
-              <Route path='/blog'>
-                <Blog Theme={this.state.ThemeSwitch} SetPage={this.setPage} />
               </Route>
             </div>
           </React.Fragment>

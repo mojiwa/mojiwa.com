@@ -29,7 +29,7 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
 
   render() {
     return(
-      <div className='md:w-10/12 md:mx-auto'>
+      <div className='md:w-10/12 md:mx-auto page-fade-in'>
         <div className='mb-6'>              
           <div>
             <span onClick={() => this.slideElement('library')} className='md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>Library</span>

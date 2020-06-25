@@ -1,0 +1,53 @@
+Getting SSL set up on Windows Server with Python and Flask:
+
+Windows:
+
+Install IIS
+Use Windows cert manage to create a certificate. Make it exportable with a password.
+Set up the website in IIS and add an SSL binding with the certificate.
+Export the cert with a password using cert manager (note, this will be a pfx file).
+
+Python:
+
+Copy the cert.pfx to the location where the flask script will be running.
+
+pip install pyopenssl flask flask-cors
+
+Run the following in python to extract the cert from the pfx file.
+
+	from OpenSSL.crypto import *
+
+	passwd = '{password}'
+
+	p12 = load_pkcs12(open('{certfilename}.pfx', 'rb').read(), passwd)
+
+	pkey = p12.get_privatekey()
+	open('pkey.pem', 'wb').write(dump_privatekey(FILETYPE_PEM, pkey))
+
+	cert = p12.get_certificate()
+	open('cert.pem', 'wb').write(dump_certificate(FILETYPE_PEM, 
+	cert))
+
+	ca_certs = p12.get_ca_certificates()
+	ca_file = open('ca.pem', 'wb')
+	for ca in ca_certs:
+		 ca_file.write(dump_certificate(FILETYPE_PEM, ca))
+		 
+
+That will get you a cert.pem and key.pem file.
+
+In your flask app, do the following:
+
+	from flask import Flask
+	from flask import request
+	from flask_cors import CORS, cross_origin
+
+	context = ('cert.pem', 'pkey.pem')
+
+	webapi = Flask(__name__)
+	CORS(webapi)
+
+	... code here ...
+
+	if __name__ == "__main__":
+		webapi.run(host='{FQDN}', ssl_context=context, threaded=True, debug=True)

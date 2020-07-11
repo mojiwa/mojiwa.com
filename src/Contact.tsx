@@ -19,7 +19,7 @@ export default class Contact extends React.PureComponent<IContactProps, {}> {
 
   render() {
     return(
-      <div className='md:w-10/12 md:mx-auto page-fade-in'>          
+      <div className='mx-5 page-fade-in'>          
         <div>
           <img 
             src={'images/mo-dj.jpg'} 
@@ -74,7 +74,7 @@ export default class Contact extends React.PureComponent<IContactProps, {}> {
           </div>       
 
           <div>              
-            <div className='lg:text-2xl text-xl mt-4'>
+            <div className='lg:text-2xl text-xl mt-4 mb-2'>
               <label>Side hustle</label>
             </div>
             <div className='flex items-center ml-2 mb-4 slide-right'>
@@ -99,7 +99,7 @@ export default class Contact extends React.PureComponent<IContactProps, {}> {
             </div>   
           </div>
           <div>
-            <div className='lg:text-2xl text-xl mt-4'>
+            <div className='lg:text-2xl text-xl mt-4 mb-2'>
               <label>Play</label>
             </div>
             <div className='flex items-center ml-2 mb-4 slide-right'>

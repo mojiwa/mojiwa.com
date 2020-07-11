@@ -29,7 +29,12 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
 
   render() {
     return(
-      <div className='md:w-10/12 md:mx-auto page-fade-in'>
+      <div className='mx-5 page-fade-in'>
+        <div className='mb-6'>
+          <div>
+            <a href={'https://github.com/mojiwa/mojiwa.com'} target='_blank' rel="noopener noreferrer"><span onClick={() => this.slideElement('mojiwa')} className='w-auto md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>mojiwa.com (this site)</span></a>                    
+          </div>
+        </div>
         <div className='mb-6'>              
           <div>
             <span onClick={() => this.slideElement('library')} className='md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>Library</span>
@@ -73,7 +78,7 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
                 className={`${this.props.Theme === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} border-gray-300 border-solid border-2 rounded-md md:border-4`} />
             </a>
           </div>
-        </div>
+        </div>        
         <div className='mb-6'>
           <span className='w-auto md:text-1xl text-xs mb-8'>More on the way...</span>
         </div>

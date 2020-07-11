@@ -60,10 +60,10 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
               onClick={() => this.props.SetPage(Page.Contact)}/>   
           </Link>         
           <div className='text-xs mt-4 md:text-base ml-2'>
-            <p>I am a software developer based in the UK for a company that designs and builds financial and commodities trading software.</p>
+            <p>I am a software developer based in the UK. I work for a company that designs and builds commodities and financial trading software.</p>
             <br/>
-            <p>I primarily work in an MSSQL {'->'} .Net (C# | WPF) tech stack; but recently have found myself venturing more and more into the world of web development and devOps, working in a 
-            Linux {'->'} Docker {'->'} MySQL {'->'} Python {'->'} Node {'->'} React tech stack, where I have created a number of <Link to='/portfolio'><span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.props.SetPage(Page.Portfolio)}>internal tools</span></Link> and hackathon projects.</p>
+            <p>I primarily work with MSSQL and .Net (C# | WPF); but recently have found myself venturing more and more into the world of web development and devOps, working in a 
+            Linux, Docker, MySQL, Python, Node and React, with which I have created a number of <Link to='/portfolio'><span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.props.SetPage(Page.Portfolio)}>internal tools and hackathon projects.</span></Link></p>
             <br/>
             <p>When I'm not coding for work, I'm generally looking after the little one. But after she goes to bed, I'm usually coding for fun (I have a life, really), gaming, playing D&D, DJ'ing, or something else geeky...</p>
             <br />              

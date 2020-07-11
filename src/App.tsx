@@ -32,7 +32,7 @@ class App extends React.PureComponent<{}, IAppState> {
     this.setState({ ThemeSwitch: theme });
   }
 
-  setPage = (page: Page) => {
+  setPage = (page: Page) => {      
     this.setState({ Page: page });
   }
 

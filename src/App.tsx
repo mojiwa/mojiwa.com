@@ -16,6 +16,8 @@ import Button from './Button';
 const THEME_LIGHT_HEX: string = '#E2E8F0';
 const THEME_DARK_HEX: string = '#1A202C';
 
+const THEME_KEY: string = 'THEME';
+
 interface IAppState {
   ThemeSwitch: Theme;
   Page: Page;
@@ -27,9 +29,24 @@ class App extends React.PureComponent<{}, IAppState> {
     Page: Page.Home,
   }
 
+  componentDidMount() {
+    // Set the user's theme selection on load
+    let savedTheme = window.localStorage.getItem(THEME_KEY);
+    if (savedTheme === null)
+      savedTheme = "0";
+    let theme: Theme = Theme.Dark;
+
+    if (savedTheme == "1")
+      theme = Theme.Light;
+
+    this.setTheme(theme);
+  }
+
   setTheme = (theme: Theme) => {
     document.body.style.backgroundColor = theme === Theme.Dark ? THEME_DARK_HEX : THEME_LIGHT_HEX;
     this.setState({ ThemeSwitch: theme });
+    // Persist the user's theme selection
+    window.localStorage.setItem(THEME_KEY, theme.toString());
   }
 
   setPage = (page: Page) => {      

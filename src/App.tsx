@@ -36,7 +36,7 @@ class App extends React.PureComponent<{}, IAppState> {
       savedTheme = "0";
     let theme: Theme = Theme.Dark;
 
-    if (savedTheme == "1")
+    if (savedTheme === "1")
       theme = Theme.Light;
 
     this.setTheme(theme);

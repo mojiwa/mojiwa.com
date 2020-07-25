@@ -16,7 +16,7 @@ export default class Home extends React.PureComponent<IHomeProps, {}> {
                 <div className={`font-thin center-content text-center cursor-default`} >
                     <span className='text-xl md:text-5xl'>Hi, I'm <span className='font-normal text-teal-600'>Mo Jiwa</span>.</span>
                     <br />
-                    <span className='text-lg md:text-3xl'>I'm a full-stack software developer</span>
+                    <span className='text-lg md:text-3xl'>I'm a full-stack web and software developer</span>
                     <div>
                         <Link to='/about'>
                             <button      

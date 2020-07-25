@@ -16,6 +16,8 @@ const LIST_OF_SKILLS : string[] = [
   'Agile: Scrum | Kanban',
   'TDD',
   'Coded UI',
+  'Vue(v3)',
+  'The Force',
 ];
 
 const LIST_OF_TOOLS : string[] = [
@@ -30,7 +32,7 @@ const LIST_OF_TOOLS : string[] = [
   'NUnit',  
   'Node.js',  
   'Tailwind CSS',
-  'Lightsaber',
+  'Lightsaber (green, of course)',
 ];
 
 interface IAboutProps {
@@ -62,10 +64,11 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
           <div className='text-xs mt-4 md:text-base ml-2'>
             <p>I am a software developer based in the UK. I work for a company that designs and builds commodities and financial trading software.</p>
             <br/>
-            <p>I primarily work with MSSQL and .Net (C# | WPF); but recently have found myself venturing more and more into the world of web development and devOps, working in a 
+            <p>I primarily work with MSSQL and .Net (C# | WPF), but have found myself venturing more into the world of web development and devOps, working in a 
             Linux, Docker, MySQL, Python, Node and React, with which I have created a number of <Link to='/portfolio'><span className='transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-teal-600' onClick={() => this.props.SetPage(Page.Portfolio)}>internal tools and hackathon projects.</span></Link></p>
+            <p>My current undertaking is getting stuck in with the latest release (v3) of Vue, which is proving to be a very insightful and exciting learning experience.</p>
             <br/>
-            <p>When I'm not coding for work, I'm generally looking after the little one. But after she goes to bed, I'm usually coding for fun (I have a life, really), gaming, playing D&D, DJ'ing, or something else geeky...</p>
+            <p>When I'm not coding for work, I'm generally looking after my daughter. However, I do still find the time to code for fun, game, play D&D, DJ, or something else geeky...</p>
             <br />              
           </div>            
           <div className='w-2/3 md:w-1/2 md:flex justify-between'>

@@ -793,6 +793,11 @@ video {
   margin-right: 0.5rem;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -947,12 +952,12 @@ video {
   width: auto;
 }
 
-.w-2\/3 {
-  width: 66.666667%;
-}
-
 .w-3\/4 {
   width: 75%;
+}
+
+.w-4\/5 {
+  width: 80%;
 }
 
 .w-3\/6 {

@@ -71,8 +71,8 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
             <p>When I'm not coding for work, I'm generally looking after my daughter. However, I do still find the time to code for fun, game, play D&D, DJ, or something else geeky...</p>
             <br />              
           </div>            
-          <div className='w-2/3 md:w-1/2 md:flex justify-between'>
-            <div className='animated-list mt-4 ml-2'>
+          <div className='w-4/5 md:w-1/2 md:flex justify-between'>
+            <div className='animated-list mt-4'>
               <label className='transition-colors duration-300 hover:text-teal-600 text-sm md:text-xl ml-4 border-teal-600 border-l-4 px-4'>Skills</label>
               <ul>                
                 {LIST_OF_SKILLS.sort().map((skill: string) =>
@@ -80,8 +80,8 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
                 )}
               </ul>
             </div>  
-            <div className='animated-list mt-4 ml-2'>
-              <label className='transition-colors duration-300 hover:text-teal-600 text-sm md:text-xl ml-4 border-teal-600 border-l-4 px-4'>Weapons of Choice</label>
+            <div className='animated-list my-4'>
+              <label className='transition-colors duration-300 hover:text-teal-600 text-sm md:text-xl ml-4 border-teal-600 border-l-4 pl-4'>Weapons of Choice</label>
               <ul>
                 {LIST_OF_TOOLS.sort().map((tool: string) =>
                   <li className='ml-6' key={tool}><label>{tool}</label></li>

@@ -55,8 +55,8 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
         <div className='mb-6 mt-12'>
           <div className='flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500' onClick={() => this.slideElement('library')}>
             <span className='md:text-2xl mb-8'>Library</span>
-            <svg className={`ml-2 ${this.state.LibraryDown ? 'hidden' : ''}`} fill="none" width="25px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 12 24 24" stroke="currentColor"><path d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path></svg>
-            <svg className={`ml-2 ${this.state.LibraryDown ? '' : 'hidden'}`} fill="none" width="25px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 12 24 24" stroke="currentColor"><path d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"></path></svg>
+            <svg className={`ml-2 ${this.state.LibraryDown ? 'hidden' : ''}`} fill="none" width="24px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 14 24 24" stroke="currentColor"><path d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path></svg>
+            <svg className={`ml-2 ${this.state.LibraryDown ? '' : 'hidden'}`} fill="none" width="24px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 14 24 24" stroke="currentColor"><path d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"></path></svg>
           </div>
           <div id='library' className='slide-up'>                
             <span className='md:text-base text-xs'>
@@ -77,8 +77,8 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
         <div className='mb-6'>
           <div className='flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500' onClick={() => this.slideElement('tagbot')}>
               <span className='md:text-2xl mb-8'>TagBot</span>
-              <svg className={`ml-2 ${this.state.TagBotDown ? 'hidden' : ''}`} fill="none" width="25px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 12 24 24" stroke="currentColor"><path d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path></svg>
-              <svg className={`ml-2 ${this.state.TagBotDown ? '' : 'hidden'}`} fill="none" width="25px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 12 24 24" stroke="currentColor"><path d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"></path></svg>
+              <svg className={`ml-2 ${this.state.TagBotDown ? 'hidden' : ''}`} fill="none" width="24px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 14 24 24" stroke="currentColor"><path d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path></svg>
+              <svg className={`ml-2 ${this.state.TagBotDown ? '' : 'hidden'}`} fill="none" width="24px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 14 24 24" stroke="currentColor"><path d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"></path></svg>
           </div>
           <div id='tagbot' className='slide-up'>                
             <span className='md:text-base text-xs'>

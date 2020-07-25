@@ -7,7 +7,17 @@ interface IPortfolioProps {
     SetPage: Function;
 }
 
+interface IPortfolioState {
+  LibraryDown: boolean;
+  TagBotDown: boolean;
+}
+
 export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> {
+  readonly state = {
+    LibraryDown: false,
+    TagBotDown: false,
+  }
+
   componentDidMount = () => { 
     this.props.SetPage(Page.Portfolio);
   }
@@ -16,7 +26,7 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
     this.props.SetPage(Page.Portfolio);
   }
 
-  slideElement(elementId: string) {
+  slideElement = (elementId: string) => {
     var element = document.getElementById(elementId);
     if (element?.classList.contains('slide-down')) {
       element?.classList.remove('slide-down');
@@ -25,6 +35,13 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
       element?.classList.add('slide-down');
       element?.classList.remove('slide-up');
     }
+
+    if (elementId === 'library') {
+      this.setState({ LibraryDown: !this.state.LibraryDown });
+    }
+    if (elementId === 'tagbot') {
+      this.setState({ TagBotDown: !this.state.TagBotDown });
+    }
   }
 
   render() {
@@ -32,12 +49,14 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
       <div className='mx-5 page-fade-in'>
         <div className='mb-6'>
           <div>
-            <a href={'https://github.com/mojiwa/mojiwa.com'} target='_blank' rel="noopener noreferrer"><span onClick={() => this.slideElement('mojiwa')} className='w-auto md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>mojiwa.com (this site)</span></a>                    
+            <a href={'https://github.com/mojiwa/mojiwa.com'} target='_blank' rel="noopener noreferrer"><span onClick={() => this.slideElement('mojiwa')} className='w-auto md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>mojiwa.com (opens on GitHub)</span></a>                    
           </div>
         </div>
-        <div className='mb-6'>              
-          <div>
-            <span onClick={() => this.slideElement('library')} className='md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>Library</span>
+        <div className='mb-6 mt-12'>
+          <div className='flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500' onClick={() => this.slideElement('library')}>
+            <span className='md:text-2xl mb-8'>Library</span>
+            <svg className={`ml-2 ${this.state.LibraryDown ? 'hidden' : ''}`} fill="none" width="25px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 12 24 24" stroke="currentColor"><path d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path></svg>
+            <svg className={`ml-2 ${this.state.LibraryDown ? '' : 'hidden'}`} fill="none" width="25px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 12 24 24" stroke="currentColor"><path d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"></path></svg>
           </div>
           <div id='library' className='slide-up'>                
             <span className='md:text-base text-xs'>
@@ -56,13 +75,15 @@ export default class Portfolio extends React.PureComponent<IPortfolioProps, {}> 
           </div>
         </div>
         <div className='mb-6'>
-          <div>
-            <span onClick={() => this.slideElement('tagbot')} className='w-auto md:text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500'>TagBot</span>
+          <div className='flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500' onClick={() => this.slideElement('tagbot')}>
+              <span className='md:text-2xl mb-8'>TagBot</span>
+              <svg className={`ml-2 ${this.state.TagBotDown ? 'hidden' : ''}`} fill="none" width="25px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 12 24 24" stroke="currentColor"><path d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path></svg>
+              <svg className={`ml-2 ${this.state.TagBotDown ? '' : 'hidden'}`} fill="none" width="25px" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 12 24 24" stroke="currentColor"><path d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"></path></svg>
           </div>
           <div id='tagbot' className='slide-up'>                
             <span className='md:text-base text-xs'>
               This project was developed using Docker running multiple Linux containers to host MySQL, Python with Flask, and NGINX.
-              <br />The front-end was React with TypeScript.
+              <br />The front-end was created entirely using vanilla JS, html, and pure css.
               <br />The goal of the project was to create the ability to create and manage custom tag groups that could be ultilised within Google Chat. 
               <br />Functionality includes:
               <li>Adding TagBot to any room</li>

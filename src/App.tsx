@@ -61,11 +61,11 @@ class App extends React.PureComponent<{}, IAppState> {
             <Button
               onClick={() => this.setTheme(Theme.Light)}
               text="Light"
-              customClass={`hover:shadow-grayOutline bg-gray-400 mr-1 text-gray-900 rounded-l-lg h-6 ${this.state.ThemeSwitch === Theme.Light ? 'hover:shadow-none' : 'hover:bg-gray-200'}`}/>
+              customClass={`hover:shadow-grayOutline bg-gray-400 mr-1 text-gray-900 rounded-l-lg h-6 px-2 ${this.state.ThemeSwitch === Theme.Light ? 'hover:shadow-none' : 'hover:bg-gray-200'}`}/>
             <Button
               onClick={() => this.setTheme(Theme.Dark)}
               text="Dark"
-              customClass={`hover:shadow-grayOutline bg-gray-800 text-gray-300 rounded-r-lg h-6 ${this.state.ThemeSwitch === Theme.Dark ? 'hover:shadow-none' : 'hover:bg-gray-900'}`} />
+              customClass={`hover:shadow-grayOutline bg-gray-800 text-gray-300 rounded-r-lg h-6 px-2 ${this.state.ThemeSwitch === Theme.Dark ? 'hover:shadow-none' : 'hover:bg-gray-900'}`} />
           </div>  
           <div className='flex justify-between mt-2 ml-3 mr-3'>     
            {/* Light/Dark theme button */}              

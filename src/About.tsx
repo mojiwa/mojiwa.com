@@ -52,7 +52,7 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
 
   render() {
     return(
-      <div className='mx-5 page-fade-in'>
+      <div className='md:mx-5 page-fade-in'>
         <div className='flex-row'>
           <Link to='/contact'>
             <img 
@@ -61,7 +61,7 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
               className={`${this.props.Theme === Theme.Dark ? 'border-gray-300' : 'border-gray-900'} mt-4 w-3/6 sm:w-64 sm:h-auto sm:ml-2 ml-1/4 border-gray-300 border-solid border-2 rounded-md md:border-4 my-image cursor-pointer`}
               onClick={() => this.props.SetPage(Page.Contact)}/>   
           </Link>         
-          <div className='text-xs mt-4 md:text-base ml-2'>
+          <div className='text-base mt-4 md:text-base ml-2'>
             <p>I am a software developer based in the UK. I work for a company that designs and builds commodities and financial trading software.</p>
             <br/>
             <p>I primarily work with MSSQL and .Net (C# | WPF), but have found myself venturing more into the world of web development and devOps, working in a 
@@ -73,7 +73,7 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
           </div>            
           <div className='w-4/5 md:w-1/2 md:flex justify-between'>
             <div className='animated-list mt-4'>
-              <label className='transition-colors duration-300 hover:text-teal-600 text-sm md:text-xl ml-4 border-teal-600 border-l-4 px-4'>Skills</label>
+              <label className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4 border-teal-600 border-l-4 px-4'>Skills</label>
               <ul>                
                 {LIST_OF_SKILLS.sort().map((skill: string) =>
                   <li className='ml-6' key={skill}><label>{skill}</label></li>
@@ -81,7 +81,7 @@ export default class About extends React.PureComponent<IAboutProps, {}> {
               </ul>
             </div>  
             <div className='animated-list my-4'>
-              <label className='transition-colors duration-300 hover:text-teal-600 text-sm md:text-xl ml-4 border-teal-600 border-l-4 pl-4'>Weapons of Choice</label>
+              <label className='transition-colors duration-300 hover:text-teal-600 text-base md:text-xl ml-4 border-teal-600 border-l-4 pl-4'>Weapons of Choice</label>
               <ul>
                 {LIST_OF_TOOLS.sort().map((tool: string) =>
                   <li className='ml-6' key={tool}><label>{tool}</label></li>

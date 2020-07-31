@@ -180,7 +180,6 @@ a:hover {
 
 @media screen and (max-width: 768px) {
   .slide-down {  
-    padding: 10px;
     height: 550px;    
     overflow: auto;    
     overflow-y: hidden;

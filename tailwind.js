@@ -218,6 +218,7 @@ module.exports = {
       text: 'text',
       move: 'move',
       'not-allowed': 'not-allowed',
+      'zoom-in': 'zoom-in',
     },
     divideColor: theme => theme('borderColor'),
     divideOpacity: theme => theme('borderOpacity'),

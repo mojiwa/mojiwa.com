@@ -67,10 +67,10 @@ class App extends React.PureComponent<{}, IAppState> {
               text="Dark"
               customClass={`hover:shadow-grayOutline bg-gray-800 text-gray-300 rounded-r-lg h-6 px-2 ${this.state.ThemeSwitch === Theme.Dark ? 'hover:shadow-none' : 'hover:bg-gray-900'}`} />
           </div>  
-          <div className='flex justify-between mt-2 ml-3 mr-3'>     
+          <div className='flex justify-between mt-2 md:mx-3'>     
            {/* Light/Dark theme button */}              
             {/* Menu bar */}
-            <div className='text-xs md:text-base'>
+            <div className='text-base md:text-base'>
               <div className={`${this.state.Page !== Page.Home ? '' : 'hidden'} flex justify-evenly md:w-64`}>
                 <Link to='/'>
                   <button className='mx-2 focus:outline-none' onClick={() => this.setState({Page: Page.Home})}>

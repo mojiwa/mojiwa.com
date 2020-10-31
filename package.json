@@ -5,10 +5,10 @@
   "dependencies": {
     "@types/node": "^12.12.47",
     "@types/react": "^16.9.38",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-router-dom": "^5.1.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "@types/react-dom": "^16.9.9",
+    "@types/react-router-dom": "^5.1.6",
+    "react": "^17.0.1",
+    "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "typescript": "^3.9.5"
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.4",
-    "postcss-cli": "^7.1.1",
-    "tailwindcss": "^1.4.6"
+    "postcss-cli": "^7.1.2",
+    "tailwindcss": "^1.9.6"
   }
 }

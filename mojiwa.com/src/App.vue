@@ -1,5 +1,4 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <div 
   class="container mx-auto font-openSans"
   :class="state.theme === 'dark' ? 'text-gray-300' : 'text-gray-900'">

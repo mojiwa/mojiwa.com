@@ -1,5 +1,5 @@
 html {
-  overflow-x: hidden;
+  overflow-x: hidden;  
 }
 
 body {
@@ -16,18 +16,21 @@ a:hover {
   transition: color 0.3s ease-in-out
 }
 
-.center-content {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;  
+.center-home-page {
+  position:absolute; 
+  top:50%; 
+  left:50%; 
+  margin: 0; 
   transform: translate(-50%, -50%);
 }
 
-.rotate-svg {
-  transform: rotateZ(90deg);
-  transition: transform;
-  transition-duration: 0.3s;
+.see-more-button:hover #see-more-svg {    
+  transform: rotate(90deg);
+}
+
+#see-more-svg {  
+  transition: transform 0.3s ease-in-out;  
+  transform: rotate(0deg);  
 }
 
 .my-image {
@@ -185,14 +188,4 @@ a:hover {
     overflow-y: hidden;
     transition: 0.5s ease-in-out;
   }
-}
-
-.page-fade-in {    
-  opacity: 1;
-  animation: page-fade-in 0.5s ease-in-out;
-}
-
-@keyframes page-fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
 }

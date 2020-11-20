@@ -1,5 +1,5 @@
 <template>
-  <div class="center-home-page">
+  <div class="center-home-page page-fade-in">
         <div class="w-full p-2 font-thin text-center cursor-default">
             <span class="text-4xl md:text-5xl">Hi, I'm <span class="font-normal text-teal-600">Mo Jiwa</span>.</span>
             <br />

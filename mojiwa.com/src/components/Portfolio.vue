@@ -1,17 +1,17 @@
 <template>
-  <div className="mx-5 mt-10">
-        <div className="mb-6">
+  <div class="mx-5 mt-10 page-fade-in">
+        <div class="mb-6">
           <div>
             <a href="https://github.com/mojiwa/mojiwa.com" target="_blank" rel="noopener noreferrer">
-              <span @click="slideElement('mojiwa')" className="w-auto text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500">
+              <span @click="slideElement('mojiwa')" class="w-auto text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500">
                 mojiwa.com <br/>(opens on GitHub)
               </span>
             </a>                    
           </div>
         </div>
-        <div className="mb-2">
-          <div className="flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500" @click="slideElement('library')">
-            <span className="text-2xl mr-2">Library</span>
+        <div class="mb-2">
+          <div class="flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500" @click="slideElement('library')">
+            <span class="text-2xl mr-2">Library</span>
               <svg 
                 class="self-center"
                 :class="libraryDown ? 'hidden' : ''"
@@ -25,8 +25,8 @@
                 <path d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"/>
               </svg>
           </div>
-          <div id="library" className="slide-up mt-2">
-            <span className="md:text-base">
+          <div id="library" class="slide-up mt-2">
+            <span class="md:text-base">
               Developed with a MySQL + Node Express backend, and React (TypeScript) with Tailwind CSS on the front-end.
               <br />The project was to develop an easily maintainable library where end-users could checkout or reserve books themselves without needing to bother admin staff.
               <br />Functionality includes:
@@ -44,13 +44,13 @@
                 src="images/site-demo.png"                 
                 alt="Library Site Demo"
                 :class="this.$store.state.theme === 'Dark' ? 'border-gray-300' : 'border-gray-900'"
-                className="cursor-zoom-in border-solid border-2 rounded-md md:border-4 w=1/3" />
+                class="cursor-zoom-in border-solid border-2 rounded-md md:border-4 w=1/3" />
             </a>            
           </div>
         </div>
-        <div className="mb-2">
-          <div className="flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500" @click="slideElement('tagbot')">
-              <span className="text-2xl mr-2">TagBot</span>
+        <div class="mb-2">
+          <div class="flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500" @click="slideElement('tagbot')">
+              <span class="text-2xl mr-2">TagBot</span>
               <svg 
                 :class="tagbotDown ? 'hidden' : ''"
                 class="self-center"
@@ -64,8 +64,8 @@
                 <path d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"/>
               </svg>
           </div>
-          <div id="tagbot" className="slide-up mt-2">                
-            <span className="md:text-base">
+          <div id="tagbot" class="slide-up mt-2">                
+            <span class="md:text-base">
               This project was developed using Docker running multiple Linux containers to host MySQL, Python with Flask, and NGINX.
               <br />The front-end was created entirely using vanilla JS, html, and pure css.
               <br />The goal of the project was to create the ability to create and manage custom tag groups that could be ultilised within Google Chat. 
@@ -80,12 +80,12 @@
                 src="images/tagbot2.png"                 
                 alt="TagBot Screenshot"
                 :class="this.$store.state.theme === 'Dark' ? 'border-gray-300' : 'border-gray-900'"
-                className="cursor-zoom-in border-solid border-2 rounded-md md:border-4 w-64" />
+                class="cursor-zoom-in border-solid border-2 rounded-md md:border-4 w-64" />
             </a>
           </div>
         </div>        
-        <div className="mb-6">
-          <span className="w-auto text-1xl mb-8">More on the way...</span>
+        <div class="mb-6">
+          <span class="w-auto text-1xl mb-8">More on the way...</span>
         </div>
       </div>
 </template>

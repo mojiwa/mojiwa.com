@@ -9875,6 +9875,10 @@ video {
   cursor: not-allowed;
 }
 
+.cursor-zoom-in {
+  cursor: zoom-in;
+}
+
 .block {
   display: block;
 }
@@ -30936,6 +30940,10 @@ video {
     cursor: not-allowed;
   }
 
+  .sm\:cursor-zoom-in {
+    cursor: zoom-in;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -51930,6 +51938,10 @@ video {
 
   .md\:cursor-not-allowed {
     cursor: not-allowed;
+  }
+
+  .md\:cursor-zoom-in {
+    cursor: zoom-in;
   }
 
   .md\:block {
@@ -72928,6 +72940,10 @@ video {
     cursor: not-allowed;
   }
 
+  .lg\:cursor-zoom-in {
+    cursor: zoom-in;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -93922,6 +93938,10 @@ video {
 
   .xl\:cursor-not-allowed {
     cursor: not-allowed;
+  }
+
+  .xl\:cursor-zoom-in {
+    cursor: zoom-in;
   }
 
   .xl\:block {

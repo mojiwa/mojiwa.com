@@ -1,12 +1,12 @@
 <template>
-  <div className="md:mx-5">
+  <div className="md:mx-5 mt-10">
     <div className="flex-row">
       <router-link to="/contact">
         <img 
           src="/images/mo-jedi.jpg" 
           alt='Mo Jiwa'              
           :class="this.$store.state.theme === 'Dark' ? 'border-gray-300' : 'border-gray-900'" 
-          class="mt-4 w-3/6 sm:w-64 sm:h-auto sm:ml-2 ml-1/4 border-gray-300 border-solid border-2 rounded-md md:border-4 my-image cursor-pointer" />   
+          class="w-3/6 sm:w-64 sm:h-auto sm:ml-2 ml-1/4 border-gray-300 border-solid border-2 rounded-md md:border-4 my-image cursor-pointer" />   
       </router-link>         
       <div className="text-base mt-4 md:text-base ml-2">
         <p>I am a software developer based in the UK. I work for a company that designs and builds commodities and financial trading software.</p>

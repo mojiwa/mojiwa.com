@@ -1,8 +1,8 @@
 <template>
   <div 
   class="container mx-auto font-openSans"
-  :class="state.theme === 'dark' ? 'text-gray-300' : 'text-gray-900'">
-    <ThemeBar @set-theme-light="setTheme('light')" @set-theme-dark="setTheme('dark')" />
+  :class="state.theme === 'Dark' ? 'text-gray-300' : 'text-gray-900'">
+    <ThemeBar @set-theme-light="setTheme('Light')" @set-theme-dark="setTheme('Dark')" />
     <div class="flex justify-between" v-if="this.$store.state.currentPage !== 'Home'"><NavBar /></div>    
     <router-view />
   </div>  
@@ -22,11 +22,11 @@ export default {
   },
   beforeMount() {
     const savedTheme = window.localStorage.getItem(this.themeKey);
-    if (savedTheme === null || savedTheme === "dark") {        
-      this.setTheme("dark")
+    if (savedTheme === null || savedTheme === "Dark") {        
+      this.setTheme("Dark")
     }
     else
-      this.setTheme("light")
+      this.setTheme("Light")
   },   
   data() {
     return {
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     setTheme(theme) {
-      document.body.style.backgroundColor = theme === "dark" ? this.darkHex : this.lightHex;
+      document.body.style.backgroundColor = theme === "Dark" ? this.darkHex : this.lightHex;
       // set the state in store to the current theme
       this.$store.commit("setTheme", theme);            
       // Persist the user's theme selection

@@ -5,6 +5,8 @@
 /.pnp
 /.vscode
 .pnp.js
+/_react_site/node_modules
+/_react_site/build
 
 # testing
 /coverage

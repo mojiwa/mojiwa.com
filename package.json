@@ -1,0 +1,19 @@
+{
+  "name": "test-vite-app",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/jit": "^0.1.17",
+    "@vitejs/plugin-vue": "^1.0.4",
+    "@vue/compiler-sfc": "^3.0.4",
+    "autoprefixer": "^10.2.5",
+    "tailwindcss": "^2.0.4",
+    "vite": "^2.1.2"
+  }
+}

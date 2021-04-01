@@ -1,17 +1,52 @@
 <template>
-  <div class="mx-auto w-1/2">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Hello Vue 3.0 + Vite" />
-  </div>
+  <div 
+  class="container mx-auto font-openSans"
+  :class="state.theme === 'Dark' ? 'text-gray-300' : 'text-gray-900'">
+    <ThemeBar @set-theme-light="setTheme('Light')" @set-theme-dark="setTheme('Dark')" />
+    <div class="flex justify-between" v-if="this.$store.state.currentPage !== 'Home'"><NavBar /></div>    
+    <router-view />
+  </div>  
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script>  
+  import "./assets/styles/custom.css";  
+  import ThemeBar from "./components/Theme-Bar.vue";
+  import NavBar from "./components/Nav-Bar.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    NavBar,    
+    ThemeBar,      
+  },
+  beforeMount() {
+    const savedTheme = window.localStorage.getItem(this.themeKey);
+    if (savedTheme === null || savedTheme === "Dark") {        
+      this.setTheme("Dark")
+    }
+    else
+      this.setTheme("Light")
+  },   
+  data() {
+    return {
+      state: this.$store.state,
+      themeKey: "THEME",
+      darkHex: "#1A202C",
+      lightHex: "#E2E8F0",
+    }
+  },
+  methods: {
+    setTheme(theme) {
+      document.body.style.backgroundColor = theme === "Dark" ? this.darkHex : this.lightHex;
+      // set the state in store to the current theme
+      this.$store.commit("setTheme", theme);            
+      // Persist the user's theme selection
+      window.localStorage.setItem(this.themeKey, theme);
+    }
   }
 }
 </script>
+
+<style>
+
+</style>

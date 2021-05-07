@@ -1,14 +1,5 @@
 <template>
-  <div class="mx-5 mt-10 page-fade-in">
-        <div class="mb-6">
-          <div>
-            <a href="https://github.com/mojiwa/mojiwa.com" target="_blank" rel="noopener noreferrer">
-              <span @click="slideElement('mojiwa')" class="w-auto text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500">
-                mojiwa.com <br/>(opens on GitHub)
-              </span>
-            </a>                    
-          </div>
-        </div>
+  <div class="mx-5 mt-10 page-fade-in">        
         <div class="mb-2">
           <div class="flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500" @click="slideElement('library')">
             <span class="text-2xl mr-2">Library</span>
@@ -44,7 +35,7 @@
                 src="../assets/images/site-demo.png"                 
                 alt="Library Site Demo"
                 :class="this.$store.state.theme === 'Dark' ? 'border-gray-300' : 'border-gray-900'"
-                class="cursor-zoom-in border-solid border-2 rounded-md md:border-4 w=1/3" />
+                class="cursor-zoom-in border-solid border-2 rounded-md md:border-4 w-auto" />
             </a>            
           </div>
         </div>
@@ -80,10 +71,62 @@
                 src="../assets/images/tagbot2.png"                 
                 alt="TagBot Screenshot"
                 :class="this.$store.state.theme === 'Dark' ? 'border-gray-300' : 'border-gray-900'"
-                class="cursor-zoom-in border-solid border-2 rounded-md md:border-4 w-64" />
+                class="cursor-zoom-in border-solid border-2 rounded-md md:border-4 w-1/2" />
             </a>
           </div>
-        </div>        
+        </div>  
+        <div class="mb-2">
+          <div class="flex hover:text-teal-600 cursor-pointer transition-colors ease-in-out duration-500" @click="slideElement('learning')">
+              <span class="text-2xl mr-2">Learning Platform</span>
+              <svg 
+                :class="learningDown ? 'hidden' : ''"
+                class="self-center"
+                fill="none" width="24px" height="24px" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" view-box="0 14 24 24" stroke="currentColor">
+                <path d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"/>
+              </svg>
+              <svg 
+                class="self-center"
+                :class="learningDown ? '' : 'hidden'"
+                fill="none" width="24px" height="24px" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" view-box="0 14 24 24" stroke="currentColor">
+                <path d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"/>
+              </svg>
+          </div>
+          <div id="learning" class="slide-up mt-2">
+            <span class="md:text-base">
+              Created using React with Node Express on the backend talking to a MySQL server.              
+              <br />A learning platform designed to integrate with Google Suite where events can be created and managed. 
+              <br />Functionality includes:
+              <li>Users can express interest in different learning/induction sessions</li>
+              <li>Presenters can manage their sessions, including the ability to invitie or remove parcipants</li>
+              <li>Users can request training for any inductions</li>
+              <li>Users can sign up to notification emails when new sessions become available</li>
+            </span>
+            <br/>
+            <a href="../assets/images/learning1.png" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="../assets/images/learning1.png"
+                alt="Learning Screenshot"
+                :class="this.$store.state.theme === 'Dark' ? 'border-gray-300' : 'border-gray-900'"
+                class="cursor-zoom-in border-solid border-2 rounded-md md:border-4 w-1/2" />
+            </a>
+            <a href="../assets/images/learning2.png" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="../assets/images/learning2.png"                
+                alt="Learning Details Screenshot"
+                :class="this.$store.state.theme === 'Dark' ? 'border-gray-300' : 'border-gray-900'"
+                class="cursor-zoom-in border-solid border-2 rounded-md md:border-4 mt-4 w-1/2" />
+            </a>
+          </div>
+        </div>      
+        <div class="mb-6">
+          <div>
+            <a href="https://github.com/mojiwa/mojiwa.com" target="_blank" rel="noopener noreferrer">
+              <span @click="slideElement('mojiwa')" class="w-auto text-2xl mb-8 cursor-pointer hover:text-teal-600 transition-colors ease-in-out duration-500">
+                This site <br/>(opens on GitHub)
+              </span>
+            </a>                    
+          </div>
+        </div>
         <div class="mb-6">
           <span class="w-auto text-1xl mb-8">More on the way...</span>
         </div>
@@ -99,6 +142,7 @@ export default {
     return {
       libraryDown: false,
       tagbotDown: false,
+      learningDown: false,
     }
   },
   methods: {
@@ -117,6 +161,9 @@ export default {
       }
       if (elementId === 'tagbot') {
         this.tagbotDown = !this.tagbotDown;
+      }
+      if (elementId === 'learning') {
+        this.learningDown = !this.learningDown;
       }
     },
   }
